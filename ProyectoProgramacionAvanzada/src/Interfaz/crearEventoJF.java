@@ -24,6 +24,8 @@ import javax.swing.JComboBox;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.DefaultListModel;
 import javax.swing.AbstractListModel;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 
 public class crearEventoJF extends javax.swing.JFrame {
 
@@ -57,7 +59,7 @@ public class crearEventoJF extends javax.swing.JFrame {
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
-		contentPane.setPreferredSize(new Dimension(400,400));
+		contentPane.setPreferredSize(new Dimension(1400, 1000));
 
 		JButton volverBtn = new JButton("Volver");
 		volverBtn.addActionListener(new ActionListener() {
@@ -84,6 +86,13 @@ public class crearEventoJF extends javax.swing.JFrame {
 		contentPane.add(nombreLbl);
 
 		JTextField nombreTxt = new JTextField();
+		nombreTxt.addKeyListener(new KeyAdapter() {
+			@Override
+			public void keyTyped(KeyEvent e) {
+				char c = e.getKeyChar();
+				if((c<'a'|| c>'z')&& c!=' ')e.consume(); 
+			}
+		});
 		nombreTxt.setFont(new Font("Bookman Old Style", Font.PLAIN, 15));
 		nombreTxt.setBounds(250,100, 400, 30);
 		contentPane.add(nombreTxt);
@@ -128,6 +137,20 @@ public class crearEventoJF extends javax.swing.JFrame {
 		directivoSalariolbl.setHorizontalAlignment(SwingConstants.LEFT);
 		directivoSalariolbl.setBounds(500, 250, 240, 30);
 		contentPane.add(directivoSalariolbl);
+		
+		JTextField salarioTxt = new JTextField();
+		salarioTxt.addKeyListener(new KeyAdapter() {
+			@Override
+			public void keyTyped(KeyEvent e) {
+				char c = e.getKeyChar();
+				if((c<'0'|| c>'9')&&c!='.')e.consume(); 
+			}
+		});
+		salarioTxt.setFont(new Font("Bookman Old Style", Font.PLAIN, 15));
+		salarioTxt.setBounds(600 ,250, 200, 30);
+		salarioTxt.setColumns(10);
+		contentPane.add(salarioTxt);
+		
 		
 		JLabel empleadosAsignadoslbl = new JLabel("Empleados rasos :");
 		empleadosAsignadoslbl.setFont(new Font("Bookman Old Style", Font.BOLD, 20));

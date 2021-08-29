@@ -13,6 +13,8 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 import javax.swing.border.EmptyBorder;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 
 public class crearEmpleadoJF extends JFrame {
 
@@ -60,10 +62,18 @@ public class crearEmpleadoJF extends JFrame {
 		contentPane.add(nombreLbl);
 
 		JTextField nombreTxt = new JTextField();
+		nombreTxt.addKeyListener(new KeyAdapter() {
+			@Override
+			public void keyTyped(KeyEvent e) {
+				char c = e.getKeyChar();
+				if((c<'a'|| c>'z')&& c!=' ')e.consume(); 
+			}
+		});
 		nombreTxt.setFont(new Font("Bookman Old Style", Font.PLAIN, 15));
 		nombreTxt.setBounds(250,100, 400, 30);
-		contentPane.add(nombreTxt);
 		nombreTxt.setColumns(10);
+		contentPane.add(nombreTxt);
+		
 		
 		JButton volverBtn = new JButton("Volver");
 		volverBtn.addActionListener(new ActionListener() {
