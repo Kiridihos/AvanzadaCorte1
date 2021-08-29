@@ -28,7 +28,7 @@ import javax.swing.AbstractListModel;
 public class crearEventoJF extends javax.swing.JFrame {
 
 	private JPanel contentPane;
-	private final ConfirmacionJD ventanaConfirmacion=new ConfirmacionJD(this,true);
+	private final confirmacionJD ventanaConfirmacion=new confirmacionJD(this,true);
 	/**
 	 * Launch the application.
 	 */
@@ -122,7 +122,13 @@ public class crearEventoJF extends javax.swing.JFrame {
 		listaEmpleadosDirectivosDesplegable.setFont(new Font("Bookman Old Style", Font.PLAIN, 20));
 		listaEmpleadosDirectivosDesplegable.setBounds(250,250,240, 40);
 		contentPane.add(listaEmpleadosDirectivosDesplegable);
-
+		
+		JLabel directivoSalariolbl = new JLabel("Salario :");
+		directivoSalariolbl.setFont(new Font("Bookman Old Style", Font.BOLD, 20));
+		directivoSalariolbl.setHorizontalAlignment(SwingConstants.LEFT);
+		directivoSalariolbl.setBounds(500, 250, 240, 30);
+		contentPane.add(directivoSalariolbl);
+		
 		JLabel empleadosAsignadoslbl = new JLabel("Empleados rasos :");
 		empleadosAsignadoslbl.setFont(new Font("Bookman Old Style", Font.BOLD, 20));
 		empleadosAsignadoslbl.setHorizontalAlignment(SwingConstants.LEFT);

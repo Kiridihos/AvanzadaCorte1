@@ -61,7 +61,7 @@ public class principalJF extends JFrame {
 		JButton mostrarDatosbtn = new JButton("MOSTRAR DATOS");
 		mostrarDatosbtn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				JFrame ventanaMostrarDatos= new MostrarDatosJF();
+				JFrame ventanaMostrarDatos= new mostrarDatosJF();
 				ventanaMostrarDatos.setVisible(true);
 				setVisible(false);
 				dispose();
