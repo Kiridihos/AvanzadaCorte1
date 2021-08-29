@@ -66,6 +66,17 @@ public class agregarDatosJF extends JFrame {
 		tituloLbl.setBounds(10, 11,1400, 50);
 		contentPane.add(tituloLbl);
 		
+		JButton crearEventoBtn = new JButton("Crear Evento");
+		crearEventoBtn.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				JFrame ventanaCrearEvento=new crearEventoJF();
+				ventanaCrearEvento.setVisible(true);
+				dispose();
+			}
+		});
+		crearEventoBtn.setBounds(20,80, 120, 40);
+		contentPane.add(crearEventoBtn);
+		
 		
         
 	}
