@@ -17,7 +17,7 @@ import javax.swing.border.EmptyBorder;
 public class crearEmpleadoJF extends JFrame {
 
 	private JPanel contentPane;
-	private final confirmacionJD ventanaConfirmacion=new confirmacionJD(this,true);
+	private final ConfirmacionJD ventanaConfirmacion=new ConfirmacionJD(this,true);
 	/**
 	 * Launch the application.
 	 */
