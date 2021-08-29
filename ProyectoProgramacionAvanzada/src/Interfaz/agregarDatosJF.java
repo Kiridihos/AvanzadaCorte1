@@ -10,6 +10,9 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import javax.swing.JLabel;
+import java.awt.Font;
+import javax.swing.SwingConstants;
 
 public class agregarDatosJF extends JFrame {
 
@@ -36,7 +39,8 @@ public class agregarDatosJF extends JFrame {
 	 */
 	public agregarDatosJF() {
 		setTitle("The Star Rover Agregar Datos");
-		setExtendedState(JFrame.MAXIMIZED_BOTH); 
+		setExtendedState(JFrame.MAXIMIZED_BOTH);
+		setUndecorated(true);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
 		contentPane = new JPanel();
@@ -52,14 +56,17 @@ public class agregarDatosJF extends JFrame {
 				setVisible(false);
 				dispose();
 			}
-			
-			
 		});
-		volverBtn.setBounds(335, 227, 89, 23);
+		volverBtn.setBounds(1270,700,70,40);
 		contentPane.add(volverBtn);
+		
+		JLabel tituloLbl = new JLabel("Agregar Datos");
+		tituloLbl.setHorizontalAlignment(SwingConstants.CENTER);
+		tituloLbl.setFont(new Font("Bookman Old Style", Font.BOLD, 40));
+		tituloLbl.setBounds(10, 11,1400, 50);
+		contentPane.add(tituloLbl);
 		
 		
         
 	}
-
 }

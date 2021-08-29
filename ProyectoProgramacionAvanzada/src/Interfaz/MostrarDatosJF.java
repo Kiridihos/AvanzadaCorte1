@@ -9,6 +9,9 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import javax.swing.JLabel;
+import javax.swing.SwingConstants;
+import java.awt.Font;
 
 public class MostrarDatosJF extends JFrame {
 
@@ -37,6 +40,7 @@ public class MostrarDatosJF extends JFrame {
 	public MostrarDatosJF() {
 		setTitle("The Star Rover Lista Datos");
 		setExtendedState(JFrame.MAXIMIZED_BOTH); 
+		setUndecorated(true);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
 		contentPane = new JPanel();
@@ -52,7 +56,13 @@ public class MostrarDatosJF extends JFrame {
 
 			}
 		});
-		volverBtn.setBounds(321, 219, 103, 31);
+		volverBtn.setBounds(1270,700,70,40);
 		contentPane.add(volverBtn);
+		
+		JLabel tituloLbl = new JLabel("Lista de Datos");
+		tituloLbl.setFont(new Font("Bookman Old Style", Font.BOLD, 40));
+		tituloLbl.setHorizontalAlignment(SwingConstants.CENTER);
+		tituloLbl.setBounds(10, 11,1400, 50);
+		contentPane.add(tituloLbl);
 	}
 }
