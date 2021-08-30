@@ -56,11 +56,15 @@ public class crearDesfileJF extends JFrame {
 		contentPane.setLayout(null);
 		setContentPane(contentPane);
 		
+		JScrollPane scrollPane_1 = new JScrollPane();
+		scrollPane_1.setBounds(0, 0,1400,800);
+		contentPane.add(scrollPane_1);
+		
 		JLabel tituloLbl = new JLabel("Crear Desfile");
 		tituloLbl.setHorizontalAlignment(SwingConstants.CENTER);
 		tituloLbl.setFont(new Font("Bookman Old Style", Font.BOLD, 40));
 		tituloLbl.setBounds(10, 11,1400, 50);
-		contentPane.add(tituloLbl);
+		scrollPane_1.add(tituloLbl);
 		
 		JLabel nombreLbl = new JLabel("Nombre de Coleccion :");
 		nombreLbl.setFont(new Font("Bookman Old Style", Font.BOLD, 20));
@@ -277,5 +281,7 @@ public class crearDesfileJF extends JFrame {
 		});
 		guardarBtn.setBounds(700,700,100,40);
 		contentPane.add(guardarBtn);
+		
+
 	}
 }

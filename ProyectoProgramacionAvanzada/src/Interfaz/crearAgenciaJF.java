@@ -18,6 +18,9 @@ import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 import javax.swing.border.EmptyBorder;
 
+import com.toedter.calendar.JDateChooser;
+import com.toedter.calendar.JYearChooser;
+
 public class crearAgenciaJF extends JFrame {
 
 	private JPanel contentPane;
@@ -57,7 +60,7 @@ public class crearAgenciaJF extends JFrame {
 		tituloLbl.setBounds(10, 11,1400, 50);
 		contentPane.add(tituloLbl);
 		
-		JLabel nombreLbl = new JLabel("Nombre :");
+		JLabel nombreLbl = new JLabel("Nombre de la agencia:");
 		nombreLbl.setFont(new Font("Bookman Old Style", Font.BOLD, 20));
 		nombreLbl.setHorizontalAlignment(SwingConstants.LEFT);
 		nombreLbl.setBounds(10, 100, 240, 30);
@@ -75,6 +78,60 @@ public class crearAgenciaJF extends JFrame {
 		nombreTxt.setBounds(250,100, 400, 30);
 		contentPane.add(nombreTxt);
 		nombreTxt.setColumns(10);
+		
+		JLabel paislbl = new JLabel("Pais :");
+		paislbl.setFont(new Font("Bookman Old Style", Font.BOLD, 20));
+		paislbl.setHorizontalAlignment(SwingConstants.LEFT);
+		paislbl.setBounds(10, 150, 240, 30);
+		contentPane.add(paislbl);
+
+		JComboBox listaPaisesDesplegable = new JComboBox();
+		listaPaisesDesplegable.setModel(new DefaultComboBoxModel(new String[] {"PAIS", "2", "3", "4", "5", "6", "7", "8", "9"}));
+		listaPaisesDesplegable.setFont(new Font("Bookman Old Style", Font.PLAIN, 20));
+		listaPaisesDesplegable.setBounds(250,150,240, 40);
+		contentPane.add(listaPaisesDesplegable);
+		
+		JLabel fechaCreacionLbl = new JLabel("Año de creacion :");
+		fechaCreacionLbl.setFont(new Font("Bookman Old Style", Font.BOLD, 20));
+		fechaCreacionLbl.setHorizontalAlignment(SwingConstants.LEFT);
+		fechaCreacionLbl.setBounds(10, 200, 240, 30);
+		contentPane.add(fechaCreacionLbl);
+		
+		JYearChooser anhoCreacion = new JYearChooser();
+		anhoCreacion.setBounds(250, 200,70, 30);
+		anhoCreacion.setFont(nombreTxt.getFont());
+		contentPane.add(anhoCreacion);
+		
+		JLabel correoLbl = new JLabel("Correo electronico :");
+		correoLbl.setFont(new Font("Bookman Old Style", Font.BOLD, 20));
+		correoLbl.setHorizontalAlignment(SwingConstants.LEFT);
+		correoLbl.setBounds(10, 250, 240, 30);
+		contentPane.add(correoLbl);
+
+		JTextField correoTxt = new JTextField();
+		correoTxt.setFont(new Font("Bookman Old Style", Font.PLAIN, 15));
+		correoTxt.setBounds(250,250, 400, 30);
+		correoTxt.setColumns(10);
+		contentPane.add(correoTxt);
+		
+		JLabel nombreduenhoLbl = new JLabel("Nombre del dueño :");
+		nombreduenhoLbl.setFont(new Font("Bookman Old Style", Font.BOLD, 20));
+		nombreduenhoLbl.setHorizontalAlignment(SwingConstants.LEFT);
+		nombreduenhoLbl.setBounds(10, 300, 240, 30);
+		contentPane.add(nombreduenhoLbl);
+
+		JTextField nombreduenhoTxt = new JTextField();
+		nombreduenhoTxt.addKeyListener(new KeyAdapter() {
+			@Override
+			public void keyTyped(KeyEvent e) {
+				char c = e.getKeyChar();
+				if((c<'a'|| c>'z')&& c!=' ')e.consume(); 
+			}
+		});
+		nombreduenhoTxt.setFont(new Font("Bookman Old Style", Font.PLAIN, 15));
+		nombreduenhoTxt.setBounds(250,300, 400, 30);
+		nombreduenhoTxt.setColumns(10);
+		contentPane.add(nombreduenhoTxt);
 		
 		JButton volverBtn = new JButton("Volver");
 		volverBtn.addActionListener(new ActionListener() {
@@ -99,6 +156,6 @@ public class crearAgenciaJF extends JFrame {
 		});
 		guardarBtn.setBounds(700,700,100,40);
 		contentPane.add(guardarBtn);
+		
 	}
-
 }
