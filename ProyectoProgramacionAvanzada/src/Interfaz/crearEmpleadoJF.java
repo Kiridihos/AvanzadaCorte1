@@ -43,11 +43,11 @@ public class crearEmpleadoJF extends JFrame {
 		setExtendedState(JFrame.MAXIMIZED_BOTH);
 		setUndecorated(true);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 450, 300);
+		setBounds(0,0,1400, 800);
+		
 		contentPane = new JPanel();
-		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
-		contentPane.setLayout(null);
 		setContentPane(contentPane);
+		contentPane.setLayout(null);
 		
 		JLabel tituloLbl = new JLabel("Agregar Empleado");
 		tituloLbl.setHorizontalAlignment(SwingConstants.CENTER);

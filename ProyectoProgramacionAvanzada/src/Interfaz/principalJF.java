@@ -40,11 +40,12 @@ public class principalJF extends JFrame {
 		setUndecorated(true);
 		setExtendedState(JFrame.MAXIMIZED_BOTH); 
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 450, 300);
+		setBounds(0,0,1400, 800);
+		
 		contentPane = new JPanel();
-		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
-		setContentPane(contentPane);
 		contentPane.setLayout(null);
+		setContentPane(contentPane);
+		
 		
 		JButton agregarDatosBtn = new JButton("AGREGAR DATOS");
 		agregarDatosBtn.addActionListener(new ActionListener() {
@@ -55,7 +56,7 @@ public class principalJF extends JFrame {
 				dispose();
 			}
 		});
-		agregarDatosBtn.setBounds(74, 80, 144, 48);
+		agregarDatosBtn.setBounds(37, 80, 144, 48);
 		contentPane.add(agregarDatosBtn);
 		
 		JButton mostrarDatosbtn = new JButton("MOSTRAR DATOS");
@@ -67,7 +68,7 @@ public class principalJF extends JFrame {
 				dispose();
 			}
 		});
-		mostrarDatosbtn.setBounds(301, 78, 144, 53);
+		mostrarDatosbtn.setBounds(37, 150, 144, 53);
 		contentPane.add(mostrarDatosbtn);
 		
 		JButton exitBtn = new JButton("SALIR");

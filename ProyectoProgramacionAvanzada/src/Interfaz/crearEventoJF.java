@@ -54,12 +54,11 @@ public class crearEventoJF extends javax.swing.JFrame {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setExtendedState(JFrame.MAXIMIZED_BOTH);
 		setUndecorated(true);
-		setBounds(100, 100, 650, 600);
+		setBounds(0,0,1400, 800);
+		
 		contentPane = new JPanel();
-		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
-		setContentPane(contentPane);
 		contentPane.setLayout(null);
-		contentPane.setPreferredSize(new Dimension(1400, 1000));
+		setContentPane(contentPane);
 
 		JButton volverBtn = new JButton("Volver");
 		volverBtn.addActionListener(new ActionListener() {
