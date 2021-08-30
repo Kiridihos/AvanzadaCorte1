@@ -120,5 +120,16 @@ public class agregarDatosJF extends JFrame {
 		});
 		crearPabellonBtn.setBounds(20,200, 130, 40);
 		contentPane.add(crearPabellonBtn);
+		
+		JButton crearModeloBtn = new JButton("Crear Modelo");
+		crearModeloBtn.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				JFrame ventanaAgregarModelo=new crearModeloJF();
+				ventanaAgregarModelo.setVisible(true);
+				dispose();
+			}
+		});
+		crearModeloBtn.setBounds(170,200, 130, 40);
+		contentPane.add(crearModeloBtn);
 	}
 }

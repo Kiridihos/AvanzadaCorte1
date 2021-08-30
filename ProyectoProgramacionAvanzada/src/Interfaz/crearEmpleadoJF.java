@@ -95,7 +95,7 @@ public class crearEmpleadoJF extends JFrame {
 			}
 		});
 		celularTxt.setFont(new Font("Bookman Old Style", Font.PLAIN, 15));
-		celularTxt.setBounds(250,150, 400, 30);
+		celularTxt.setBounds(250,150, 200, 30);
 		celularTxt.setColumns(10);
 		contentPane.add(celularTxt);
 		
