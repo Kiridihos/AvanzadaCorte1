@@ -5,13 +5,20 @@ import java.awt.EventQueue;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 
+import javax.swing.DefaultComboBoxModel;
 import javax.swing.JButton;
+import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 import javax.swing.border.EmptyBorder;
+
+import com.toedter.calendar.JDateChooser;
 
 public class crearDesfileJF extends JFrame {
 
@@ -52,6 +59,109 @@ public class crearDesfileJF extends JFrame {
 		tituloLbl.setBounds(10, 11,1400, 50);
 		contentPane.add(tituloLbl);
 		
+		JLabel nombreLbl = new JLabel("Nombre de Coleccion :");
+		nombreLbl.setFont(new Font("Bookman Old Style", Font.BOLD, 20));
+		nombreLbl.setHorizontalAlignment(SwingConstants.LEFT);
+		nombreLbl.setBounds(10, 100, 240, 30);
+		contentPane.add(nombreLbl);
+
+		JTextField nombreTxt = new JTextField();
+		nombreTxt.addKeyListener(new KeyAdapter() {
+			@Override
+			public void keyTyped(KeyEvent e) {
+				char c = e.getKeyChar();
+				if((c<'a'|| c>'z')&& c!=' ')e.consume(); 
+			}
+		});
+		nombreTxt.setFont(new Font("Bookman Old Style", Font.PLAIN, 15));
+		nombreTxt.setBounds(250,100, 400, 30);
+		contentPane.add(nombreTxt);
+		nombreTxt.setColumns(10);
+		
+		JLabel fechaLbl = new JLabel("Fecha de inicio :");
+		fechaLbl.setFont(new Font("Bookman Old Style", Font.BOLD, 20));
+		fechaLbl.setHorizontalAlignment(SwingConstants.LEFT);
+		fechaLbl.setBounds(10, 150, 240, 30);
+		contentPane.add(fechaLbl);
+		
+		JDateChooser fecha = new JDateChooser();
+		fecha.setBounds(250, 150, 200, 30);
+		fecha.setFont(nombreTxt.getFont());
+		contentPane.add(fecha);
+		
+		JLabel horalLbl = new JLabel("Hora :");
+		horalLbl.setBounds(10,200,240, 30);
+		horalLbl.setFont(new Font("Bookman Old Style", Font.BOLD, 20));
+		horalLbl.setHorizontalAlignment(SwingConstants.LEFT);
+		contentPane.add(horalLbl);
+		
+		JTextField HoraTxt = new JTextField();
+		HoraTxt.setHorizontalAlignment(SwingConstants.RIGHT);
+		HoraTxt.addKeyListener(new KeyAdapter() {
+			@Override
+			public void keyTyped(KeyEvent e) {
+				if(HoraTxt.getText().length()==2) {
+					e.consume();
+				}else {
+				char c = e.getKeyChar();
+				if(c<'0'|| c>'9')e.consume(); 
+				}
+			}
+		});
+		HoraTxt.setFont(new Font("Bookman Old Style", Font.PLAIN, 15));
+		HoraTxt.setBounds(250,200, 50, 30);
+		HoraTxt.setColumns(2);
+		contentPane.add(HoraTxt);
+		
+		JLabel dosPuntosLbl = new JLabel(":");
+		dosPuntosLbl.setHorizontalAlignment(SwingConstants.CENTER);
+		dosPuntosLbl.setFont(new Font("Bookman Old Style", Font.BOLD, 25));
+		dosPuntosLbl.setBounds(300, 200, 20,30);
+		contentPane.add(dosPuntosLbl);
+		
+		JTextField minutosTxt = new JTextField();
+		minutosTxt.setHorizontalAlignment(SwingConstants.RIGHT);
+		minutosTxt.addKeyListener(new KeyAdapter() {
+			@Override
+			public void keyTyped(KeyEvent e) {
+				if(minutosTxt.getText().length()==2) {
+					e.consume();
+				}else {
+				char c = e.getKeyChar();
+				if(c<'0'|| c>'9')e.consume(); 
+				}
+			}
+		});
+		minutosTxt.setFont(new Font("Bookman Old Style", Font.PLAIN, 15));
+		minutosTxt.setBounds(325,200, 50, 30);
+		minutosTxt.setColumns(2);
+		contentPane.add(minutosTxt);
+		
+		JLabel eventoLbl = new JLabel("Evento asignado :");
+		eventoLbl.setFont(new Font("Bookman Old Style", Font.BOLD, 20));
+		eventoLbl.setHorizontalAlignment(SwingConstants.LEFT);
+		eventoLbl.setBounds(10, 250, 240, 30);
+		contentPane.add(eventoLbl);
+
+		JComboBox listaEventosDesplegable = new JComboBox();
+		listaEventosDesplegable.setModel(new DefaultComboBoxModel(new String[] {"EVENTO", "2", "3", "4", "5", "6", "7", "8", "9"}));
+		listaEventosDesplegable.setFont(new Font("Bookman Old Style", Font.PLAIN, 20));
+		listaEventosDesplegable.setBounds(250,250,240, 40);
+		contentPane.add(listaEventosDesplegable);
+		
+		JLabel diseñadorbl = new JLabel("Diseñador encargado :");
+		diseñadorbl.setFont(new Font("Bookman Old Style", Font.BOLD, 20));
+		diseñadorbl.setHorizontalAlignment(SwingConstants.LEFT);
+		diseñadorbl.setBounds(10, 300, 240, 30);
+		contentPane.add(diseñadorbl);
+
+		JComboBox listaEmpleadosDiseñadoresDesplegable = new JComboBox();
+		listaEmpleadosDiseñadoresDesplegable.setModel(new DefaultComboBoxModel(new String[] {"DISEÑADOR", "2", "3", "4", "5", "6", "7", "8", "9"}));
+		listaEmpleadosDiseñadoresDesplegable.setFont(new Font("Bookman Old Style", Font.PLAIN, 20));
+		listaEmpleadosDiseñadoresDesplegable.setBounds(250,300,240, 40);
+		contentPane.add(listaEmpleadosDiseñadoresDesplegable);
+		
+		
 		JButton volverBtn = new JButton("Volver");
 		volverBtn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -76,5 +186,4 @@ public class crearDesfileJF extends JFrame {
 		guardarBtn.setBounds(700,700,100,40);
 		contentPane.add(guardarBtn);
 	}
-
 }

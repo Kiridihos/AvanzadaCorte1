@@ -99,5 +99,15 @@ public class agregarDatosJF extends JFrame {
 		crearDesfileBtn.setBounds(20,140, 120, 40);
 		contentPane.add(crearDesfileBtn);
         
+		JButton crearDisenhadorBtn = new JButton("Crear Diseñador");
+		crearDisenhadorBtn.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				JFrame ventanaCrearDisenhador=new crearDisenhadorJF();
+				ventanaCrearDisenhador.setVisible(true);
+				dispose();
+			}
+		});
+		crearDisenhadorBtn.setBounds(170,140, 130, 40);
+		contentPane.add(crearDisenhadorBtn);
 	}
 }
