@@ -134,7 +134,7 @@ public class crearEventoJF extends javax.swing.JFrame {
 		JLabel directivoSalariolbl = new JLabel("Salario :");
 		directivoSalariolbl.setFont(new Font("Bookman Old Style", Font.BOLD, 20));
 		directivoSalariolbl.setHorizontalAlignment(SwingConstants.LEFT);
-		directivoSalariolbl.setBounds(500, 250, 240, 30);
+		directivoSalariolbl.setBounds(500, 250, 90, 30);
 		contentPane.add(directivoSalariolbl);
 		
 		JTextField salarioTxt = new JTextField();
@@ -162,12 +162,30 @@ public class crearEventoJF extends javax.swing.JFrame {
 		listaEmpleadosDesplegable.setFont(new Font("Bookman Old Style", Font.PLAIN, 20));
 		listaEmpleadosDesplegable.setBounds(250,300,240, 40);
 		contentPane.add(listaEmpleadosDesplegable);
+		
+		JLabel rasoSalariolbl = new JLabel("Salario :");
+		rasoSalariolbl.setFont(new Font("Bookman Old Style", Font.BOLD, 20));
+		rasoSalariolbl.setHorizontalAlignment(SwingConstants.LEFT);
+		rasoSalariolbl.setBounds(500, 300, 90, 30);
+		contentPane.add(rasoSalariolbl);
+		
+		JTextField salarioRasosTxt = new JTextField();
+		salarioRasosTxt.addKeyListener(new KeyAdapter() {
+			@Override
+			public void keyTyped(KeyEvent e) {
+				char c = e.getKeyChar();
+				if((c<'0'|| c>'9')&&c!='.')e.consume(); 
+			}
+		});
+		salarioRasosTxt.setFont(new Font("Bookman Old Style", Font.PLAIN, 15));
+		salarioRasosTxt.setBounds(600 ,300, 200, 30);
+		salarioRasosTxt.setColumns(10);
+		contentPane.add(salarioRasosTxt);
 
 		DefaultListModel cosas= new DefaultListModel();
 		JScrollPane scrollPane = new JScrollPane();
 		scrollPane.setBounds(250, 351, 240, 200);
 		contentPane.add(scrollPane);
-
 		JList rasosAsignadosLst = new JList();
 		scrollPane.setViewportView(rasosAsignadosLst);
 
@@ -175,17 +193,21 @@ public class crearEventoJF extends javax.swing.JFrame {
 		agregarEmpleadoBtn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if(cosas.getSize()==0){
-					cosas.addElement(listaEmpleadosDesplegable.getSelectedItem());
+					cosas.addElement(listaEmpleadosDesplegable.getSelectedItem()+"-"+salarioRasosTxt.getText());
 					rasosAsignadosLst.setModel(cosas);
 				}else {
 					boolean repetido=false;
 					for(int i=0;i<cosas.getSize();i++) {
-						if(cosas.get(i)==listaEmpleadosDesplegable.getSelectedItem()) {
+						String enlistado=cosas.get(i).toString();
+						String dividido[]=enlistado.split("-");
+						if(dividido[0].equals(listaEmpleadosDesplegable.getSelectedItem())) {
 							repetido=true;
+						}else {
+							repetido=false;
 						}
 					}
 					if(repetido==false) {
-						cosas.addElement(listaEmpleadosDesplegable.getSelectedItem());
+						cosas.addElement(listaEmpleadosDesplegable.getSelectedItem()+"-"+salarioRasosTxt.getText());
 						rasosAsignadosLst.setModel(cosas);
 					}
 				}	

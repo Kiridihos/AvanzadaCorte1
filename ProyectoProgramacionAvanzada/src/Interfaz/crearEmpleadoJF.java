@@ -74,6 +74,11 @@ public class crearEmpleadoJF extends JFrame {
 		nombreTxt.setColumns(10);
 		contentPane.add(nombreTxt);
 		
+		JLabel tipoLbl = new JLabel("Tipo :");
+		tipoLbl.setFont(new Font("Bookman Old Style", Font.BOLD, 20));
+		tipoLbl.setHorizontalAlignment(SwingConstants.LEFT);
+		tipoLbl.setBounds(10, 150, 240, 30);
+		contentPane.add(tipoLbl);
 		
 		JButton volverBtn = new JButton("Volver");
 		volverBtn.addActionListener(new ActionListener() {
