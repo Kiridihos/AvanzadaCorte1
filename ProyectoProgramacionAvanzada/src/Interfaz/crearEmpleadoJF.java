@@ -6,6 +6,7 @@ import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import javax.swing.ButtonGroup;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -15,11 +16,16 @@ import javax.swing.SwingConstants;
 import javax.swing.border.EmptyBorder;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
+import javax.swing.JRadioButton;
+import javax.swing.JComboBox;
+import java.awt.event.FocusAdapter;
+import java.awt.event.FocusEvent;
 
 public class crearEmpleadoJF extends JFrame {
 
 	private JPanel contentPane;
 	private final ConfirmacionJD ventanaConfirmacion=new ConfirmacionJD(this,true);
+	private ButtonGroup tipoEmpleado=new ButtonGroup();
 	/**
 	 * Launch the application.
 	 */
@@ -74,11 +80,95 @@ public class crearEmpleadoJF extends JFrame {
 		nombreTxt.setColumns(10);
 		contentPane.add(nombreTxt);
 		
+		JLabel celularLbl = new JLabel("Celular :");
+		celularLbl.setFont(new Font("Bookman Old Style", Font.BOLD, 20));
+		celularLbl.setHorizontalAlignment(SwingConstants.LEFT);
+		celularLbl.setBounds(10, 150, 240, 30);
+		contentPane.add(celularLbl);
+
+		JTextField CelularTxt = new JTextField();
+		CelularTxt.addKeyListener(new KeyAdapter() {
+			@Override
+			public void keyTyped(KeyEvent e) {
+				char c = e.getKeyChar();
+				if(c<'0'|| c>'9')e.consume(); 
+			}
+		});
+		CelularTxt.setFont(new Font("Bookman Old Style", Font.PLAIN, 15));
+		CelularTxt.setBounds(250,150, 400, 30);
+		CelularTxt.setColumns(10);
+		contentPane.add(CelularTxt);
+		
 		JLabel tipoLbl = new JLabel("Tipo :");
 		tipoLbl.setFont(new Font("Bookman Old Style", Font.BOLD, 20));
 		tipoLbl.setHorizontalAlignment(SwingConstants.LEFT);
-		tipoLbl.setBounds(10, 150, 240, 30);
+		tipoLbl.setBounds(700, 100, 70, 30);
 		contentPane.add(tipoLbl);
+				
+		JLabel ProfesionLbl = new JLabel("Profesion :");
+		ProfesionLbl.setFont(new Font("Bookman Old Style", Font.BOLD, 20));
+		ProfesionLbl.setHorizontalAlignment(SwingConstants.LEFT);
+		ProfesionLbl.setBounds(700, 150, 120, 30);
+		ProfesionLbl.setVisible(false);
+		contentPane.add(ProfesionLbl);
+		
+		JComboBox profesionesDesplegable = new JComboBox();
+		profesionesDesplegable.setBounds(850, 153, 400, 30);
+		profesionesDesplegable.setVisible(false);
+		contentPane.add(profesionesDesplegable);
+		
+		JLabel UniversidadLbl = new JLabel("Universidad :");
+		UniversidadLbl.setFont(new Font("Bookman Old Style", Font.BOLD, 20));
+		UniversidadLbl.setHorizontalAlignment(SwingConstants.LEFT);
+		UniversidadLbl.setBounds(700, 200, 140, 30);
+		UniversidadLbl.setVisible(false);
+		contentPane.add(UniversidadLbl);
+		
+		JTextField universidadTxt = new JTextField();
+		universidadTxt.addKeyListener(new KeyAdapter() {
+			@Override
+			public void keyTyped(KeyEvent e) {
+				char c = e.getKeyChar();
+				if((c<'a'|| c>'z')&& c!=' ')e.consume(); 
+			}
+		});
+		universidadTxt.setFont(new Font("Bookman Old Style", Font.PLAIN, 15));
+		universidadTxt.setBounds(850,200, 400, 30);
+		universidadTxt.setColumns(10);
+		universidadTxt.setVisible(false);
+		contentPane.add(universidadTxt);
+		
+		JRadioButton directivoRbtn= new JRadioButton("Directivo");
+		directivoRbtn.addFocusListener(new FocusAdapter() {
+			@Override
+			public void focusGained(FocusEvent e) {
+				ProfesionLbl.setVisible(true);
+				profesionesDesplegable.setVisible(true);
+				UniversidadLbl.setVisible(true);
+				universidadTxt.setVisible(true);
+			}
+		});
+		directivoRbtn.setHorizontalAlignment(SwingConstants.LEFT);
+		directivoRbtn.setFont(new Font("Bookman Old Style", Font.PLAIN, 20));
+		directivoRbtn.setBounds(780, 100, 120, 30);
+		contentPane.add(directivoRbtn);
+		
+		JRadioButton rasosRbtn = new JRadioButton("Rasos");
+		rasosRbtn.addFocusListener(new FocusAdapter() {
+			@Override
+			public void focusGained(FocusEvent e) {
+				ProfesionLbl.setVisible(false);
+				profesionesDesplegable.setVisible(false);
+				UniversidadLbl.setVisible(false);
+				universidadTxt.setVisible(false);
+			}
+		});
+		rasosRbtn.setHorizontalAlignment(SwingConstants.LEFT);
+		rasosRbtn.setFont(new Font("Bookman Old Style", Font.PLAIN, 20));
+		rasosRbtn.setBounds(900, 100, 120, 30);
+		contentPane.add(rasosRbtn);
+		tipoEmpleado.add(rasosRbtn);
+		tipoEmpleado.add(directivoRbtn);
 		
 		JButton volverBtn = new JButton("Volver");
 		volverBtn.addActionListener(new ActionListener() {
@@ -102,7 +192,6 @@ public class crearEmpleadoJF extends JFrame {
 			}
 		});
 		guardarBtn.setBounds(700,700,100,40);
-		contentPane.add(guardarBtn);
+		contentPane.add(guardarBtn);	
 	}
-
 }
