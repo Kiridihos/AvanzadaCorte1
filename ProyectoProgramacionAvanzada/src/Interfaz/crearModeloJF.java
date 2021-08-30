@@ -18,6 +18,8 @@ import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 import javax.swing.border.EmptyBorder;
 
+import com.toedter.calendar.JDateChooser;
+
 public class crearModeloJF extends JFrame {
 
 	private JPanel contentPane;
@@ -75,6 +77,91 @@ public class crearModeloJF extends JFrame {
 		nombreTxt.setBounds(250,100, 400, 30);
 		contentPane.add(nombreTxt);
 		nombreTxt.setColumns(10);
+		
+		JLabel pasaporteLbl = new JLabel("Pasaporte :");
+		pasaporteLbl.setFont(new Font("Bookman Old Style", Font.BOLD, 20));
+		pasaporteLbl.setHorizontalAlignment(SwingConstants.LEFT);
+		pasaporteLbl.setBounds(10, 150, 240, 30);
+		contentPane.add(pasaporteLbl);
+
+		JTextField pasaporteTxt = new JTextField();
+		pasaporteTxt.addKeyListener(new KeyAdapter() {
+			@Override
+			public void keyTyped(KeyEvent e) {
+				char c = e.getKeyChar();
+				if(c<'0'|| c>'9')e.consume(); 
+			}
+		});
+		pasaporteTxt.setFont(new Font("Bookman Old Style", Font.PLAIN, 15));
+		pasaporteTxt.setBounds(250,150, 200, 30);
+		pasaporteTxt.setColumns(10);
+		contentPane.add(pasaporteTxt);
+		
+		JLabel paislbl = new JLabel("Pais :");
+		paislbl.setFont(new Font("Bookman Old Style", Font.BOLD, 20));
+		paislbl.setHorizontalAlignment(SwingConstants.LEFT);
+		paislbl.setBounds(10, 200, 240, 30);
+		contentPane.add(paislbl);
+
+		JComboBox listaPaisesDesplegable = new JComboBox();
+		listaPaisesDesplegable.setModel(new DefaultComboBoxModel(new String[] {"PAIS", "2", "3", "4", "5", "6", "7", "8", "9"}));
+		listaPaisesDesplegable.setFont(new Font("Bookman Old Style", Font.PLAIN, 20));
+		listaPaisesDesplegable.setBounds(250,200,240, 40);
+		contentPane.add(listaPaisesDesplegable);
+		
+		JLabel fechaNacimientoLbl = new JLabel("Fecha de nacimiento :");
+		fechaNacimientoLbl.setFont(new Font("Bookman Old Style", Font.BOLD, 20));
+		fechaNacimientoLbl.setHorizontalAlignment(SwingConstants.LEFT);
+		fechaNacimientoLbl.setBounds(10, 250, 240, 30);
+		contentPane.add(fechaNacimientoLbl);
+
+		JDateChooser fechaNacimiento = new JDateChooser();
+		fechaNacimiento.setBounds(250, 250, 200, 30);
+		fechaNacimiento.setFont(nombreTxt.getFont());
+		contentPane.add(fechaNacimiento);
+		
+		JLabel colorlbl = new JLabel("Color de ojos :");
+		colorlbl.setFont(new Font("Bookman Old Style", Font.BOLD, 20));
+		colorlbl.setHorizontalAlignment(SwingConstants.LEFT);
+		colorlbl.setBounds(10, 300, 240, 30);
+		contentPane.add(colorlbl);
+
+		JComboBox listaColorDeOjosDesplegable = new JComboBox();
+		listaColorDeOjosDesplegable.setModel(new DefaultComboBoxModel(new String[] {"COLOR DE OJOS", "2", "3", "4", "5", "6", "7", "8", "9"}));
+		listaColorDeOjosDesplegable.setFont(new Font("Bookman Old Style", Font.PLAIN, 20));
+		listaColorDeOjosDesplegable.setBounds(250,300,240, 40);
+		contentPane.add(listaColorDeOjosDesplegable);
+		
+		JLabel colorPielLbl = new JLabel("Color de piel :");
+		colorPielLbl.setFont(new Font("Bookman Old Style", Font.BOLD, 20));
+		colorPielLbl.setHorizontalAlignment(SwingConstants.LEFT);
+		colorPielLbl.setBounds(10, 350, 240, 30);
+		contentPane.add(colorPielLbl);
+
+		JComboBox listaColorDePielDesplegable = new JComboBox();
+		listaColorDePielDesplegable.setModel(new DefaultComboBoxModel(new String[] {"COLOR DE PIEL", "2", "3", "4", "5", "6", "7", "8", "9"}));
+		listaColorDePielDesplegable.setFont(new Font("Bookman Old Style", Font.PLAIN, 20));
+		listaColorDePielDesplegable.setBounds(250,350,240, 40);
+		contentPane.add(listaColorDePielDesplegable);
+		
+		JLabel estaturalbl = new JLabel("Estatura :");
+		estaturalbl.setFont(new Font("Bookman Old Style", Font.BOLD, 20));
+		estaturalbl.setHorizontalAlignment(SwingConstants.LEFT);
+		estaturalbl.setBounds(10,400, 240, 30);
+		contentPane.add(estaturalbl);
+		
+		JTextField estaturaTxt = new JTextField();
+		estaturaTxt.addKeyListener(new KeyAdapter() {
+			@Override
+			public void keyTyped(KeyEvent e) {
+				char c = e.getKeyChar();
+				if((c<'0'|| c>'9')&&c!='.')e.consume(); 
+			}
+		});
+		estaturaTxt.setFont(new Font("Bookman Old Style", Font.PLAIN, 15));
+		estaturaTxt.setBounds(250 ,400, 200, 30);
+		estaturaTxt.setColumns(10);
+		contentPane.add(estaturaTxt);
 		
 		JButton volverBtn = new JButton("Volver");
 		volverBtn.addActionListener(new ActionListener() {
