@@ -9,11 +9,14 @@ import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 
 import javax.swing.DefaultComboBoxModel;
+import javax.swing.DefaultListModel;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JList;
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 import javax.swing.border.EmptyBorder;
@@ -172,6 +175,84 @@ public class crearDesfileJF extends JFrame {
 		listaPabellonesDesplegable.setFont(new Font("Bookman Old Style", Font.PLAIN, 20));
 		listaPabellonesDesplegable.setBounds(250,350,240, 40);
 		contentPane.add(listaPabellonesDesplegable);
+		
+		JLabel modeloslbl = new JLabel("Modelos :");
+		modeloslbl.setFont(new Font("Bookman Old Style", Font.BOLD, 20));
+		modeloslbl.setHorizontalAlignment(SwingConstants.LEFT);
+		modeloslbl.setBounds(10, 400, 240, 30);
+		contentPane.add(modeloslbl);
+
+		JComboBox listaModelosDesplegable = new JComboBox();
+		listaModelosDesplegable.setModel(new DefaultComboBoxModel(new String[] {"MODELOS", "2", "3", "4", "5", "6", "7", "8", "9"}));
+		listaModelosDesplegable.setFont(new Font("Bookman Old Style", Font.PLAIN, 20));
+		listaModelosDesplegable.setBounds(250,400,240, 40);
+		contentPane.add(listaModelosDesplegable);
+		
+		JLabel modeloSalariolbl = new JLabel("Salario :");
+		modeloSalariolbl.setFont(new Font("Bookman Old Style", Font.BOLD, 20));
+		modeloSalariolbl.setHorizontalAlignment(SwingConstants.LEFT);
+		modeloSalariolbl.setBounds(500, 400, 90, 30);
+		contentPane.add(modeloSalariolbl);
+		
+		JTextField salarioModeloTxt = new JTextField();
+		salarioModeloTxt.addKeyListener(new KeyAdapter() {
+			@Override
+			public void keyTyped(KeyEvent e) {
+				char c = e.getKeyChar();
+				if((c<'0'|| c>'9')&&c!='.')e.consume(); 
+			}
+		});
+		salarioModeloTxt.setFont(new Font("Bookman Old Style", Font.PLAIN, 15));
+		salarioModeloTxt.setBounds(600 ,400, 200, 30);
+		salarioModeloTxt.setColumns(10);
+		contentPane.add(salarioModeloTxt);
+
+		DefaultListModel cosas= new DefaultListModel();
+		JScrollPane scrollPane = new JScrollPane();
+		scrollPane.setBounds(250, 450, 240, 200);
+		contentPane.add(scrollPane);
+		JList modelosAsignadosLst = new JList();
+		scrollPane.setViewportView(modelosAsignadosLst);
+
+		JButton agregarEmpleadoBtn = new JButton("Agregar");
+		agregarEmpleadoBtn.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if(cosas.getSize()==0){
+					cosas.addElement(listaModelosDesplegable.getSelectedItem()+"-"+salarioModeloTxt.getText());
+					modelosAsignadosLst.setModel(cosas);
+				}else {
+					boolean repetido=false;
+					for(int i=0;i<cosas.getSize();i++) {
+						String enlistado=cosas.get(i).toString();
+						String dividido[]=enlistado.split("-");
+						if(dividido[0].equals(listaModelosDesplegable.getSelectedItem())) {
+							repetido=true;
+						}else {
+							repetido=false;
+						}
+					}
+					if(repetido==false) {
+						cosas.addElement(listaModelosDesplegable.getSelectedItem()+"-"+salarioModeloTxt.getText());
+						modelosAsignadosLst.setModel(cosas);
+					}
+				}	
+
+			}
+		});
+		agregarEmpleadoBtn.setBounds(10, 450, 90,30);
+		contentPane.add(agregarEmpleadoBtn);
+
+		JButton eliminarBtn = new JButton("Eliminar");
+		eliminarBtn.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if(cosas.getSize()>0) {
+				cosas.remove(modelosAsignadosLst.getSelectedIndex());
+				modelosAsignadosLst.setModel(cosas);
+				}
+			}
+		});
+		eliminarBtn.setBounds(110, 450, 90, 30);
+		contentPane.add(eliminarBtn);
 		
 		JButton volverBtn = new JButton("Volver");
 		volverBtn.addActionListener(new ActionListener() {
