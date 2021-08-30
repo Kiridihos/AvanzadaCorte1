@@ -18,7 +18,9 @@ import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 import javax.swing.border.EmptyBorder;
 
-public class crearDisenhadorJF extends JFrame {
+import com.toedter.calendar.JDateChooser;
+
+public class crearPabellonJF extends JFrame {
 
 	private JPanel contentPane;
 	private final ConfirmacionJD ventanaConfirmacion=new ConfirmacionJD(this,true);
@@ -29,7 +31,7 @@ public class crearDisenhadorJF extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					crearDisenhadorJF frame = new crearDisenhadorJF();
+					crearPabellonJF frame = new crearPabellonJF();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -41,7 +43,7 @@ public class crearDisenhadorJF extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public crearDisenhadorJF() {
+	public crearPabellonJF() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setUndecorated(true);
 		setExtendedState(JFrame.MAXIMIZED_BOTH); 
@@ -51,7 +53,7 @@ public class crearDisenhadorJF extends JFrame {
 		contentPane.setLayout(null);
 		setContentPane(contentPane);
 		
-		JLabel tituloLbl = new JLabel("Crear Diseñador");
+		JLabel tituloLbl = new JLabel("Crear Pabellon");
 		tituloLbl.setHorizontalAlignment(SwingConstants.CENTER);
 		tituloLbl.setFont(new Font("Bookman Old Style", Font.BOLD, 40));
 		tituloLbl.setBounds(10, 11,1400, 50);
@@ -73,39 +75,8 @@ public class crearDisenhadorJF extends JFrame {
 		});
 		nombreTxt.setFont(new Font("Bookman Old Style", Font.PLAIN, 15));
 		nombreTxt.setBounds(250,100, 400, 30);
-		nombreTxt.setColumns(10);
 		contentPane.add(nombreTxt);
-		
-		JLabel pasaporteLbl = new JLabel("Pasaporte :");
-		pasaporteLbl.setFont(new Font("Bookman Old Style", Font.BOLD, 20));
-		pasaporteLbl.setHorizontalAlignment(SwingConstants.LEFT);
-		pasaporteLbl.setBounds(10, 150, 240, 30);
-		contentPane.add(pasaporteLbl);
-
-		JTextField pasaporteTxt = new JTextField();
-		pasaporteTxt.addKeyListener(new KeyAdapter() {
-			@Override
-			public void keyTyped(KeyEvent e) {
-				char c = e.getKeyChar();
-				if(c<'0'|| c>'9')e.consume(); 
-			}
-		});
-		pasaporteTxt.setFont(new Font("Bookman Old Style", Font.PLAIN, 15));
-		pasaporteTxt.setBounds(250,150, 200, 30);
-		pasaporteTxt.setColumns(10);
-		contentPane.add(pasaporteTxt);
-		
-		JLabel paislbl = new JLabel("Pais :");
-		paislbl.setFont(new Font("Bookman Old Style", Font.BOLD, 20));
-		paislbl.setHorizontalAlignment(SwingConstants.LEFT);
-		paislbl.setBounds(10, 200, 240, 30);
-		contentPane.add(paislbl);
-
-		JComboBox listaPaisesDesplegable = new JComboBox();
-		listaPaisesDesplegable.setModel(new DefaultComboBoxModel(new String[] {"PAIS", "2", "3", "4", "5", "6", "7", "8", "9"}));
-		listaPaisesDesplegable.setFont(new Font("Bookman Old Style", Font.PLAIN, 20));
-		listaPaisesDesplegable.setBounds(250,200,240, 40);
-		contentPane.add(listaPaisesDesplegable);
+		nombreTxt.setColumns(10);
 		
 		JButton volverBtn = new JButton("Volver");
 		volverBtn.addActionListener(new ActionListener() {

@@ -74,7 +74,7 @@ public class agregarDatosJF extends JFrame {
 				dispose();
 			}
 		});
-		crearEventoBtn.setBounds(20,80, 120, 40);
+		crearEventoBtn.setBounds(20,80, 130, 40);
 		contentPane.add(crearEventoBtn);
 		
 		JButton crearEmpleadoBtn = new JButton("Crear Empleado");
@@ -96,7 +96,7 @@ public class agregarDatosJF extends JFrame {
 				dispose();
 			}
 		});
-		crearDesfileBtn.setBounds(20,140, 120, 40);
+		crearDesfileBtn.setBounds(20,140, 130, 40);
 		contentPane.add(crearDesfileBtn);
         
 		JButton crearDisenhadorBtn = new JButton("Crear Diseñador");
@@ -109,5 +109,16 @@ public class agregarDatosJF extends JFrame {
 		});
 		crearDisenhadorBtn.setBounds(170,140, 130, 40);
 		contentPane.add(crearDisenhadorBtn);
+		
+		JButton crearPabellonBtn = new JButton("Crear Pabellon");
+		crearPabellonBtn.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				JFrame ventanaCrearPabellon=new crearPabellonJF();
+				ventanaCrearPabellon.setVisible(true);
+				dispose();
+			}
+		});
+		crearPabellonBtn.setBounds(20,200, 130, 40);
+		contentPane.add(crearPabellonBtn);
 	}
 }

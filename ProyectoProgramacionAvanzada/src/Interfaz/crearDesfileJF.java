@@ -161,6 +161,17 @@ public class crearDesfileJF extends JFrame {
 		listaEmpleadosDiseñadoresDesplegable.setBounds(250,300,240, 40);
 		contentPane.add(listaEmpleadosDiseñadoresDesplegable);
 		
+		JLabel pabellonlbl = new JLabel("Pabellon :");
+		pabellonlbl.setFont(new Font("Bookman Old Style", Font.BOLD, 20));
+		pabellonlbl.setHorizontalAlignment(SwingConstants.LEFT);
+		pabellonlbl.setBounds(10, 350, 240, 30);
+		contentPane.add(pabellonlbl);
+
+		JComboBox listaPabellonesDesplegable = new JComboBox();
+		listaPabellonesDesplegable.setModel(new DefaultComboBoxModel(new String[] {"PABELLON", "2", "3", "4", "5", "6", "7", "8", "9"}));
+		listaPabellonesDesplegable.setFont(new Font("Bookman Old Style", Font.PLAIN, 20));
+		listaPabellonesDesplegable.setBounds(250,350,240, 40);
+		contentPane.add(listaPabellonesDesplegable);
 		
 		JButton volverBtn = new JButton("Volver");
 		volverBtn.addActionListener(new ActionListener() {

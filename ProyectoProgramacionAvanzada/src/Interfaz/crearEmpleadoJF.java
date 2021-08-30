@@ -86,18 +86,18 @@ public class crearEmpleadoJF extends JFrame {
 		celularLbl.setBounds(10, 150, 240, 30);
 		contentPane.add(celularLbl);
 
-		JTextField CelularTxt = new JTextField();
-		CelularTxt.addKeyListener(new KeyAdapter() {
+		JTextField celularTxt = new JTextField();
+		celularTxt.addKeyListener(new KeyAdapter() {
 			@Override
 			public void keyTyped(KeyEvent e) {
 				char c = e.getKeyChar();
 				if(c<'0'|| c>'9')e.consume(); 
 			}
 		});
-		CelularTxt.setFont(new Font("Bookman Old Style", Font.PLAIN, 15));
-		CelularTxt.setBounds(250,150, 400, 30);
-		CelularTxt.setColumns(10);
-		contentPane.add(CelularTxt);
+		celularTxt.setFont(new Font("Bookman Old Style", Font.PLAIN, 15));
+		celularTxt.setBounds(250,150, 400, 30);
+		celularTxt.setColumns(10);
+		contentPane.add(celularTxt);
 		
 		JLabel tipoLbl = new JLabel("Tipo :");
 		tipoLbl.setFont(new Font("Bookman Old Style", Font.BOLD, 20));
