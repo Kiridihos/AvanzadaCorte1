@@ -163,6 +163,109 @@ public class crearModeloJF extends JFrame {
 		estaturaTxt.setColumns(10);
 		contentPane.add(estaturaTxt);
 		
+		JLabel cinturalbl = new JLabel("Cintura :");
+		cinturalbl.setFont(new Font("Bookman Old Style", Font.BOLD, 20));
+		cinturalbl.setHorizontalAlignment(SwingConstants.LEFT);
+		cinturalbl.setBounds(10,450, 240, 30);
+		contentPane.add(cinturalbl);
+		
+		JTextField cinturaTxt = new JTextField();
+		cinturaTxt.addKeyListener(new KeyAdapter() {
+			@Override
+			public void keyTyped(KeyEvent e) {
+				char c = e.getKeyChar();
+				if((c<'0'|| c>'9')&&c!='.')e.consume(); 
+			}
+		});
+		cinturaTxt.setFont(new Font("Bookman Old Style", Font.PLAIN, 15));
+		cinturaTxt.setBounds(250 ,450, 200, 30);
+		cinturaTxt.setColumns(10);
+		contentPane.add(cinturaTxt);
+		
+		JLabel bustolbl = new JLabel("Busto :");
+		bustolbl.setFont(new Font("Bookman Old Style", Font.BOLD, 20));
+		bustolbl.setHorizontalAlignment(SwingConstants.LEFT);
+		bustolbl.setBounds(10,500, 240, 30);
+		contentPane.add(bustolbl);
+		
+		JTextField bustoTxt = new JTextField();
+		bustoTxt.addKeyListener(new KeyAdapter() {
+			@Override
+			public void keyTyped(KeyEvent e) {
+				char c = e.getKeyChar();
+				if((c<'0'|| c>'9')&&c!='.')e.consume(); 
+			}
+		});
+		bustoTxt.setFont(new Font("Bookman Old Style", Font.PLAIN, 15));
+		bustoTxt.setBounds(250 ,500, 200, 30);
+		bustoTxt.setColumns(10);
+		contentPane.add(bustoTxt);
+		
+		JLabel tallaZapatoslbl = new JLabel("Talla de zapatos :");
+		tallaZapatoslbl.setFont(new Font("Bookman Old Style", Font.BOLD, 20));
+		tallaZapatoslbl.setHorizontalAlignment(SwingConstants.LEFT);
+		tallaZapatoslbl.setBounds(10,550, 240, 30);
+		contentPane.add(tallaZapatoslbl);
+		
+		JTextField tallaZapatosTxt = new JTextField();
+		tallaZapatosTxt.addKeyListener(new KeyAdapter() {
+			@Override
+			public void keyTyped(KeyEvent e) {
+				if(tallaZapatosTxt.getText().length()==2) {
+					e.consume();
+				}else {
+				char c = e.getKeyChar();
+				if(c<'0'|| c>'9')e.consume(); 
+				}
+			}
+		});
+		tallaZapatosTxt.setFont(new Font("Bookman Old Style", Font.PLAIN, 15));
+		tallaZapatosTxt.setBounds(250 ,550, 40, 30);
+		tallaZapatosTxt.setColumns(10);
+		contentPane.add(tallaZapatosTxt);
+		
+		JLabel pesolbl = new JLabel("Peso :");
+		pesolbl.setFont(new Font("Bookman Old Style", Font.BOLD, 20));
+		pesolbl.setHorizontalAlignment(SwingConstants.LEFT);
+		pesolbl.setBounds(10,600, 240, 30);
+		contentPane.add(pesolbl);
+		
+		JTextField pesoTxt = new JTextField();
+		pesoTxt.addKeyListener(new KeyAdapter() {
+			@Override
+			public void keyTyped(KeyEvent e) {
+				if(pesoTxt.getText().length()==2) {
+					e.consume();
+				}else {
+				char c = e.getKeyChar();
+				if(c<'0'|| c>'9')e.consume(); 
+				}
+			}
+		});
+		pesoTxt.setFont(new Font("Bookman Old Style", Font.PLAIN, 15));
+		pesoTxt.setBounds(250 ,600, 40, 30);
+		pesoTxt.setColumns(10);
+		contentPane.add(pesoTxt);
+		
+		JLabel particularidadLbl = new JLabel("Particularidades :");
+		particularidadLbl.setFont(new Font("Bookman Old Style", Font.BOLD, 20));
+		particularidadLbl.setHorizontalAlignment(SwingConstants.LEFT);
+		particularidadLbl.setBounds(10, 650, 240, 30);
+		contentPane.add(particularidadLbl);
+
+		JTextField particularidadTxt = new JTextField();
+		particularidadTxt.addKeyListener(new KeyAdapter() {
+			@Override
+			public void keyTyped(KeyEvent e) {
+				char c = e.getKeyChar();
+				if((c<'a'|| c>'z')&& c!=' ')e.consume(); 
+			}
+		});
+		particularidadTxt.setFont(new Font("Bookman Old Style", Font.PLAIN, 15));
+		particularidadTxt.setBounds(250,650, 400, 30);
+		particularidadTxt.setColumns(10);
+		contentPane.add(particularidadTxt);
+		
 		JButton volverBtn = new JButton("Volver");
 		volverBtn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
