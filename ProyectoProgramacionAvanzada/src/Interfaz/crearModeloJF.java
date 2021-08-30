@@ -266,6 +266,18 @@ public class crearModeloJF extends JFrame {
 		particularidadTxt.setColumns(10);
 		contentPane.add(particularidadTxt);
 		
+		JLabel agencialbl = new JLabel("Agencia :");
+		agencialbl.setFont(new Font("Bookman Old Style", Font.BOLD, 20));
+		agencialbl.setHorizontalAlignment(SwingConstants.LEFT);
+		agencialbl.setBounds(660, 100, 120, 30);
+		contentPane.add(agencialbl);
+
+		JComboBox listaAgenciasDesplegable = new JComboBox();
+		listaAgenciasDesplegable.setModel(new DefaultComboBoxModel(new String[] {"AGENCIA", "2", "3", "4", "5", "6", "7", "8", "9"}));
+		listaAgenciasDesplegable.setFont(new Font("Bookman Old Style", Font.PLAIN, 20));
+		listaAgenciasDesplegable.setBounds(800,95,240, 40);
+		contentPane.add(listaAgenciasDesplegable);
+		
 		JButton volverBtn = new JButton("Volver");
 		volverBtn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {

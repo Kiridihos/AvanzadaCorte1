@@ -131,5 +131,16 @@ public class agregarDatosJF extends JFrame {
 		});
 		crearModeloBtn.setBounds(170,200, 130, 40);
 		contentPane.add(crearModeloBtn);
+		
+		JButton crearAgenciaBtn = new JButton("Crear Agencia");
+		crearAgenciaBtn.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				JFrame ventanaCreaAgencia=new crearAgenciaJF();
+				ventanaCreaAgencia.setVisible(true);
+				dispose();
+			}
+		});
+		crearAgenciaBtn.setBounds(20,260, 130, 40);
+		contentPane.add(crearAgenciaBtn);
 	}
 }
