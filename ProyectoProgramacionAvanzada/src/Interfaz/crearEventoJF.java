@@ -60,18 +60,6 @@ public class crearEventoJF extends javax.swing.JFrame {
 		contentPane.setLayout(null);
 		setContentPane(contentPane);
 
-		JButton volverBtn = new JButton("Volver");
-		volverBtn.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				JFrame ventanaAgregarDatos= new agregarDatosJF();
-				ventanaAgregarDatos.setVisible(true);
-				setVisible(false);
-				dispose();
-			}
-		});
-		volverBtn.setBounds(1270,700,70,40);
-		contentPane.add(volverBtn);
-
 		JLabel tituloLbl = new JLabel("Crear Evento");
 		tituloLbl.setHorizontalAlignment(SwingConstants.CENTER);
 		tituloLbl.setFont(new Font("Bookman Old Style", Font.BOLD, 40));
@@ -228,7 +216,19 @@ public class crearEventoJF extends javax.swing.JFrame {
 		});
 		eliminarBtn.setBounds(105, 390, 89, 23);
 		contentPane.add(eliminarBtn);
-
+		
+		JButton volverBtn = new JButton("Volver");
+		volverBtn.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				JFrame ventanaAgregarDatos= new agregarDatosJF();
+				ventanaAgregarDatos.setVisible(true);
+				setVisible(false);
+				dispose();
+			}
+		});
+		volverBtn.setBounds(1270,700,70,40);
+		contentPane.add(volverBtn);
+		
 		JButton guardarBtn = new JButton("Guardar");
 		guardarBtn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {

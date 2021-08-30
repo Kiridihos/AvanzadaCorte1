@@ -85,10 +85,19 @@ public class agregarDatosJF extends JFrame {
 				dispose();
 			}
 		});
-		crearEmpleadoBtn.setBounds(20,140, 140, 40);
+		crearEmpleadoBtn.setBounds(170,80, 130, 40);
 		contentPane.add(crearEmpleadoBtn);
 		
-		
+		JButton crearDesfileBtn = new JButton("Crear Desfile");
+		crearDesfileBtn.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				JFrame ventanaCrearDesfile=new crearDesfileJF();
+				ventanaCrearDesfile.setVisible(true);
+				dispose();
+			}
+		});
+		crearDesfileBtn.setBounds(20,140, 120, 40);
+		contentPane.add(crearDesfileBtn);
         
 	}
 }
