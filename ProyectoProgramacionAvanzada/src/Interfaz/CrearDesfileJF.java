@@ -8,6 +8,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
+import java.text.SimpleDateFormat;
 
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.DefaultListModel;
@@ -84,7 +85,7 @@ public class CrearDesfileJF extends JFrame {
 			@Override
 			public void keyTyped(KeyEvent e) {
 				char c = e.getKeyChar();
-				if((c<'a'|| c>'z')&& c!=' ')e.consume(); 
+				if((c<'a'|| c>'z')&&(c<'A'|| c>'Z')&& c!=' ')e.consume(); 
 			}
 		});
 		nombreTxt.setFont(new Font("Bookman Old Style", Font.PLAIN, 15));
@@ -158,7 +159,7 @@ public class CrearDesfileJF extends JFrame {
 		panel.add(eventoLbl);
 
 		JComboBox listaEventosDesplegable = new JComboBox();
-		listaEventosDesplegable.setModel(new DefaultComboBoxModel(new String[] {"EVENTO", "2", "3", "4", "5", "6", "7", "8", "9"}));
+		listaEventosDesplegable.setModel(new DefaultComboBoxModel(new String[] {"EVENTO 1", "EVENTO 2", "EVENTO 3", "EVENTO 4", "EVENTO 5", "EVENTO 6", "EVENTO 7", "EVENTO 8", "EVENTO 9"}));
 		listaEventosDesplegable.setFont(new Font("Bookman Old Style", Font.PLAIN, 20));
 		listaEventosDesplegable.setBounds(250,250,240, 40);
 		panel.add(listaEventosDesplegable);
@@ -169,11 +170,11 @@ public class CrearDesfileJF extends JFrame {
 		diseñadorbl.setBounds(10, 300, 240, 30);
 		panel.add(diseñadorbl);
 
-		JComboBox listaEmpleadosDiseñadoresDesplegable = new JComboBox();
-		listaEmpleadosDiseñadoresDesplegable.setModel(new DefaultComboBoxModel(new String[] {"DISEÑADOR", "2", "3", "4", "5", "6", "7", "8", "9"}));
-		listaEmpleadosDiseñadoresDesplegable.setFont(new Font("Bookman Old Style", Font.PLAIN, 20));
-		listaEmpleadosDiseñadoresDesplegable.setBounds(250,300,240, 40);
-		panel.add(listaEmpleadosDiseñadoresDesplegable);
+		JComboBox listaDiseñadoresDesplegable = new JComboBox();
+		listaDiseñadoresDesplegable.setModel(new DefaultComboBoxModel(new String[] {"DISEÑADOR 1", "DISEÑADOR2", "DISEÑADOR 3", "DISEÑADOR 4", "DISEÑADOR 5", "DISEÑADOR 6", "DISEÑADOR 7", "DISEÑADOR 8", "DISEÑADOR 9"}));
+		listaDiseñadoresDesplegable.setFont(new Font("Bookman Old Style", Font.PLAIN, 20));
+		listaDiseñadoresDesplegable.setBounds(250,300,240, 40);
+		panel.add(listaDiseñadoresDesplegable);
 		
 		JLabel pabellonlbl = new JLabel("Pabellon :");
 		pabellonlbl.setFont(new Font("Bookman Old Style", Font.BOLD, 20));
@@ -182,7 +183,8 @@ public class CrearDesfileJF extends JFrame {
 		panel.add(pabellonlbl);
 
 		JComboBox listaPabellonesDesplegable = new JComboBox();
-		listaPabellonesDesplegable.setModel(new DefaultComboBoxModel(new String[] {"PABELLON", "2", "3", "4", "5", "6", "7", "8", "9"}));
+		listaPabellonesDesplegable.setModel(new DefaultComboBoxModel(new String[] {"PABELLON 1", "PABELLON 2", "PABELLON 3",
+																				   "PABELLON 4", "PABELLON 5", "PABELLON 6", "PABELLON 7", "PABELLON 8", "PABELLON 9"}));
 		listaPabellonesDesplegable.setFont(new Font("Bookman Old Style", Font.PLAIN, 20));
 		listaPabellonesDesplegable.setBounds(250,350,240, 40);
 		panel.add(listaPabellonesDesplegable);
@@ -194,7 +196,7 @@ public class CrearDesfileJF extends JFrame {
 		panel.add(modeloslbl);
 
 		JComboBox listaModelosDesplegable = new JComboBox();
-		listaModelosDesplegable.setModel(new DefaultComboBoxModel(new String[] {"MODELOS", "2", "3", "4", "5", "6", "7", "8", "9"}));
+		listaModelosDesplegable.setModel(new DefaultComboBoxModel(new String[] {"MODELO 1","MODELO 2","MODELO 3","MODELO 4","MODELO 5","MODELO 6","MODELO 7","MODELO 8","MODELO 9"}));
 		listaModelosDesplegable.setFont(new Font("Bookman Old Style", Font.PLAIN, 20));
 		listaModelosDesplegable.setBounds(250,400,240, 40);
 		panel.add(listaModelosDesplegable);
@@ -230,13 +232,13 @@ public class CrearDesfileJF extends JFrame {
 		agregarEmpleadoBtn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if(cosas.getSize()==0){
-					cosas.addElement(listaModelosDesplegable.getSelectedItem()+"-"+salarioModeloTxt.getText());
+					cosas.addElement(listaModelosDesplegable.getSelectedItem()+";"+salarioModeloTxt.getText());
 					modelosAsignadosLst.setModel(cosas);
 				}else {
 					boolean repetido=false;
 					for(int i=0;i<cosas.getSize();i++) {
 						String enlistado=cosas.get(i).toString();
-						String dividido[]=enlistado.split("-");
+						String dividido[]=enlistado.split(";");
 						if(dividido[0].equals(listaModelosDesplegable.getSelectedItem())) {
 							repetido=true;
 						}else {
@@ -244,7 +246,7 @@ public class CrearDesfileJF extends JFrame {
 						}
 					}
 					if(repetido==false) {
-						cosas.addElement(listaModelosDesplegable.getSelectedItem()+"-"+salarioModeloTxt.getText());
+						cosas.addElement(listaModelosDesplegable.getSelectedItem()+";"+salarioModeloTxt.getText());
 						modelosAsignadosLst.setModel(cosas);
 					}
 				}	
@@ -308,6 +310,22 @@ public class CrearDesfileJF extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				ventanaConfirmacion.setVisible(true);
 				if(ventanaConfirmacion.isConfirmacion()) {
+					
+					String[] desfileCreado=new String[cosas.getSize()];
+					for(int i=0;i<cosas.getSize();i++) {
+						desfileCreado[i]="ID"+";"+new SimpleDateFormat("dd/MM/YYYY").format(fecha.getDate())
+									    +";"+HoraTxt.getText()+":"+minutosTxt.getText()
+									    +";"+nombreTxt.getText()
+									    +";"+listaDiseñadoresDesplegable.getSelectedItem()
+									    +";"+listaPabellonesDesplegable.getSelectedItem()
+									    +";"+cosas.get(i)
+									    +";"+listaArtistaDesplegable.getSelectedItem()
+									    +";"+salarioArtistaTxt.getText()
+									    +";"+listaEventosDesplegable.getSelectedItem();
+					}
+					for (String string : desfileCreado) {
+						System.out.println(string);
+					}
 					
 				}
 			}
