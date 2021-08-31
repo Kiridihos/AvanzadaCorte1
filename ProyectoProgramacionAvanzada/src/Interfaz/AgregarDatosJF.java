@@ -130,6 +130,17 @@ public class AgregarDatosJF extends JFrame {
 		crearAgenciaBtn.setBounds(20,260, 130, 40);
 		contentPane.add(crearAgenciaBtn);
 		
+		JButton crearArtistaBtn = new JButton("Crear/Agregar Artista");
+		crearArtistaBtn.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				JFrame ventanaCrearArtista=new CrearArtistaJF();
+				ventanaCrearArtista.setVisible(true);
+				dispose();
+			}
+		});
+		crearArtistaBtn.setBounds(170,260, 160, 40);
+		contentPane.add(crearArtistaBtn);
+		
 		JButton volverBtn = new JButton("Volver");
 		volverBtn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {

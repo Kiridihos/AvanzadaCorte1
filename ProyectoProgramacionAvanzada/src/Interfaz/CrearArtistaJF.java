@@ -206,6 +206,7 @@ public class CrearArtistaJF extends JFrame {
 			@Override
 			public void focusGained(FocusEvent e) {
 				
+				nombreBandaTxt.setVisible(true);
 				bandasDesplegable1.setVisible(false);
 				nombreBandaLbl.setText("Nombre Banda :");
 				nombreLbl.setText("Nombre artista :");
