@@ -7,6 +7,6 @@
 		</attributes>
 	</classpathentry>
 	<classpathentry kind="lib" path="jcalendar-1.4.jar"/>
-	<classpathentry kind="lib" path="C:/Users/Kiridihos/Documents/GitHub/AvanzadaCorte1/ProyectoProgramacionAvanzada/postgresql-42.2.23.jar"/>
+	<classpathentry kind="lib" path="D:/RepositorioProgramacionAvanzada/AvanzadaCorte1/ProyectoProgramacionAvanzada/postgresql-42.2.23.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
