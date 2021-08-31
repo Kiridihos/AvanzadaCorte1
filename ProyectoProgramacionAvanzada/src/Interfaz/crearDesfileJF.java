@@ -63,7 +63,7 @@ public class crearDesfileJF extends JFrame {
 		setContentPane(scrollPane);
 		
 		JPanel panel = new JPanel();
-		panel.setPreferredSize(new Dimension(1400,1200));
+		panel.setPreferredSize(new Dimension(1400,800));
 		scrollPane.setViewportView(panel);
 		panel.setLayout(null);
 		
@@ -287,9 +287,20 @@ public class crearDesfileJF extends JFrame {
 				}
 			}
 		});
-		guardarBtn.setBounds(700,1049,100,40);
+		guardarBtn.setBounds(700,730,100,40);
 		panel.add(guardarBtn);
-			
+		
+		JLabel artistalbl = new JLabel("Artista contratado :");
+		artistalbl.setFont(new Font("Bookman Old Style", Font.BOLD, 20));
+		artistalbl.setHorizontalAlignment(SwingConstants.LEFT);
+		artistalbl.setBounds(10, 660, 240, 30);
+		panel.add(artistalbl);
+
+		JComboBox listaArtistaDesplegable = new JComboBox();
+		listaArtistaDesplegable.setModel(new DefaultComboBoxModel(new String[] {"Artista", "2", "3", "4", "5", "6", "7", "8", "9"}));
+		listaArtistaDesplegable.setFont(new Font("Bookman Old Style", Font.PLAIN, 20));
+		listaArtistaDesplegable.setBounds(250,660,240, 30);
+		panel.add(listaArtistaDesplegable);
 
 	}
 }
