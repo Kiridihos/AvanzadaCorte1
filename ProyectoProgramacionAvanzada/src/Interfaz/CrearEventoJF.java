@@ -26,6 +26,7 @@ import javax.swing.DefaultListModel;
 import javax.swing.AbstractListModel;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
+import java.text.SimpleDateFormat;
 
 public class CrearEventoJF extends javax.swing.JFrame {
 
@@ -76,7 +77,7 @@ public class CrearEventoJF extends javax.swing.JFrame {
 			@Override
 			public void keyTyped(KeyEvent e) {
 				char c = e.getKeyChar();
-				if((c<'a'|| c>'z')&& c!=' ')e.consume(); 
+				if((c<'a'|| c>'z')&&(c<'A'|| c>'Z')&& c!=' ')e.consume(); 
 			}
 		});
 		nombreTxt.setFont(new Font("Bookman Old Style", Font.PLAIN, 15));
@@ -113,7 +114,8 @@ public class CrearEventoJF extends javax.swing.JFrame {
 		contentPane.add(directivoEncargadolbl);
 
 		JComboBox listaEmpleadosDirectivosDesplegable = new JComboBox();
-		listaEmpleadosDirectivosDesplegable.setModel(new DefaultComboBoxModel(new String[] {"directivos", "2", "3", "4", "5", "6", "7", "8", "9"}));
+		listaEmpleadosDirectivosDesplegable.setModel(new DefaultComboBoxModel(new String[] {"DIRECTIVO 1","DIRECTIVO 2","DIRECTIVO 3","DIRECTIVO 4","DIRECTIVO 5"
+																							, "DIRECTIVO6", "DIRECTIVO 7", "DIRECTIVO 8", "DIRECTIVO 9"}));
 		listaEmpleadosDirectivosDesplegable.setFont(new Font("Bookman Old Style", Font.PLAIN, 20));
 		listaEmpleadosDirectivosDesplegable.setBounds(250,250,240, 40);
 		contentPane.add(listaEmpleadosDirectivosDesplegable);
@@ -145,7 +147,7 @@ public class CrearEventoJF extends javax.swing.JFrame {
 		contentPane.add(empleadosAsignadoslbl);
 
 		JComboBox listaEmpleadosDesplegable = new JComboBox();
-		listaEmpleadosDesplegable.setModel(new DefaultComboBoxModel(new String[] {"RASOS", "2", "3", "4", "5", "6", "7", "8", "9"}));
+		listaEmpleadosDesplegable.setModel(new DefaultComboBoxModel(new String[] {"RASO 1", "RASO 2", "RASO 3", "RASO 4", "RASO 5", "RASO 6", "RASO 7", "RASO 8", "RASO 9"}));
 		listaEmpleadosDesplegable.setFont(new Font("Bookman Old Style", Font.PLAIN, 20));
 		listaEmpleadosDesplegable.setBounds(250,300,240, 40);
 		contentPane.add(listaEmpleadosDesplegable);
@@ -180,13 +182,13 @@ public class CrearEventoJF extends javax.swing.JFrame {
 		agregarEmpleadoBtn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if(cosas.getSize()==0){
-					cosas.addElement(listaEmpleadosDesplegable.getSelectedItem()+"-"+salarioRasosTxt.getText());
+					cosas.addElement(listaEmpleadosDesplegable.getSelectedItem()+";"+salarioRasosTxt.getText());
 					rasosAsignadosLst.setModel(cosas);
 				}else {
 					boolean repetido=false;
 					for(int i=0;i<cosas.getSize();i++) {
 						String enlistado=cosas.get(i).toString();
-						String dividido[]=enlistado.split("-");
+						String dividido[]=enlistado.split(";");
 						if(dividido[0].equals(listaEmpleadosDesplegable.getSelectedItem())) {
 							repetido=true;
 						}else {
@@ -194,7 +196,7 @@ public class CrearEventoJF extends javax.swing.JFrame {
 						}
 					}
 					if(repetido==false) {
-						cosas.addElement(listaEmpleadosDesplegable.getSelectedItem()+"-"+salarioRasosTxt.getText());
+						cosas.addElement(listaEmpleadosDesplegable.getSelectedItem()+";"+salarioRasosTxt.getText());
 						rasosAsignadosLst.setModel(cosas);
 					}
 				}	
@@ -233,8 +235,18 @@ public class CrearEventoJF extends javax.swing.JFrame {
 			public void actionPerformed(ActionEvent e) {
 				ventanaConfirmacion.setVisible(true);
 				if(ventanaConfirmacion.isConfirmacion()) {
-					String id="0";
-					String[] datos= {id,nombreTxt.getText(),fechaInicio.getDate().toString(),fechaFinal.getDate().toString()};
+					String[] eventoCreado=new String[cosas.getSize()];
+					for(int i=0;i<cosas.getSize();i++) {
+					eventoCreado[i]="ID"+";"+nombreTxt.getText()
+					+";"+new SimpleDateFormat("dd/MM/YYYY").format(fechaInicio.getDate())
+					+";"+new SimpleDateFormat("dd/MM/YYYY").format(fechaFinal.getDate())
+					+";"+listaEmpleadosDirectivosDesplegable.getSelectedItem()//cambiar a ID del Directivo
+					+";"+salarioTxt.getText()
+					+";"+cosas.get(i);
+					}
+					for (String string : eventoCreado) {
+						System.out.println(string);
+					}
 				}
 			}
 		});
