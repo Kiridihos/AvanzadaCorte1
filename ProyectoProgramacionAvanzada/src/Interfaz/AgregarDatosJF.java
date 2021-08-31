@@ -152,6 +152,17 @@ public class AgregarDatosJF extends JFrame {
 		crearPortafolioBtn.setBounds(20,320, 130, 40);
 		contentPane.add(crearPortafolioBtn);
 		
+		JButton actualizarModeloBtn_1 = new JButton("Actualizar Modelo");
+		actualizarModeloBtn_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				JFrame ventanaActualizarDatosModelo=new ActualizarDatosModeloJF();
+				ventanaActualizarDatosModelo.setVisible(true);
+				dispose();
+			}
+		});
+		actualizarModeloBtn_1.setBounds(342, 200, 140, 40);
+		contentPane.add(actualizarModeloBtn_1);
+		
 		JButton volverBtn = new JButton("Volver");
 		volverBtn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -163,5 +174,7 @@ public class AgregarDatosJF extends JFrame {
 		});
 		volverBtn.setBounds(1270,20,70,40);
 		contentPane.add(volverBtn);
+		
+
 	}
 }
