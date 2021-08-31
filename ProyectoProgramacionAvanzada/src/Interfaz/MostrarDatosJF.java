@@ -5,9 +5,16 @@ import java.awt.EventQueue;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.JTable;
 import javax.swing.border.EmptyBorder;
+import javax.swing.table.DefaultTableModel;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.Statement;
 import java.awt.event.ActionEvent;
 import javax.swing.JLabel;
 import javax.swing.SwingConstants;
@@ -141,5 +148,37 @@ public class MostrarDatosJF extends JFrame {
 		});
 		volverBtn.setBounds(1270,20,70,40);
 		contentPane.add(volverBtn);
-	}
-}
+		
+		JPanel panel = new JPanel();
+		panel.setBounds(43, 324, 466, 156);
+		contentPane.add(panel);
+				try {
+					Class.forName("org.postgresql.Driver");
+					Connection connection = DriverManager.getConnection("jdbc:postgresql://localhost:5432/projectC1","postgres","12345");
+					int codigo, directivoAsignado, salarioDirectivo, empleadoRasoAsignado, salarioEmpRaso;
+					String nombre;
+					Statement st = (Statement) connection.createStatement();
+					ResultSet rs = st.executeQuery("SELECT codigo, nombre, directivo_asignado, salario_directivo, empleado_raso_asignado, salario_empleado_raso from evento");
+					String[] columnas= {"Codigo","Nombre","DirAsignado","SalarioDir","EmpRasoAsignado","SalarioEmpRaso"};
+					JTable tabla = new JTable();
+					DefaultTableModel modelo = new DefaultTableModel();
+					modelo.setColumnIdentifiers(columnas);
+					tabla.setModel(modelo);
+					while(rs.next()) {
+						codigo = rs.getInt("codigo");
+						nombre = rs.getString("nombre");
+						directivoAsignado = rs.getInt("directivo_asignado");
+						salarioDirectivo = rs.getInt("salario_directivo");
+						empleadoRasoAsignado = rs.getInt("empleado_raso_asignado");
+						salarioEmpRaso = rs.getInt("salario_empleado_Raso");
+						modelo.addRow(new Object[]{codigo, nombre, directivoAsignado, salarioDirectivo, empleadoRasoAsignado, salarioEmpRaso});
+					}
+					JScrollPane scroll = new JScrollPane(tabla);
+					add(scroll);
+				}catch(Exception e) {
+					System.out.println(e);
+				}
+			}
+		}
+
+
