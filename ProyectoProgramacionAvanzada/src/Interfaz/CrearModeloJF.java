@@ -20,7 +20,7 @@ import javax.swing.border.EmptyBorder;
 
 import com.toedter.calendar.JDateChooser;
 
-public class crearModeloJF extends JFrame {
+public class CrearModeloJF extends JFrame {
 
 	private JPanel contentPane;
 	private final ConfirmacionJD ventanaConfirmacion=new ConfirmacionJD(this,true);
@@ -31,7 +31,7 @@ public class crearModeloJF extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					crearModeloJF frame = new crearModeloJF();
+					CrearModeloJF frame = new CrearModeloJF();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -43,7 +43,7 @@ public class crearModeloJF extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public crearModeloJF() {
+	public CrearModeloJF() {
 		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setUndecorated(true);
@@ -281,7 +281,7 @@ public class crearModeloJF extends JFrame {
 		JButton volverBtn = new JButton("Volver");
 		volverBtn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				JFrame ventanaAgregarDatos= new agregarDatosJF();
+				JFrame ventanaAgregarDatos= new AgregarDatosJF();
 				ventanaAgregarDatos.setVisible(true);
 				setVisible(false);
 				dispose();

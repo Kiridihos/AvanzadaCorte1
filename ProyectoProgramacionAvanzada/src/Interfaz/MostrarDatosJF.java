@@ -51,7 +51,7 @@ public class MostrarDatosJF extends JFrame {
 		
 		volverBtn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				JFrame ventanaPrincipal=new principalJF();
+				JFrame ventanaPrincipal=new PrincipalJF();
 				ventanaPrincipal.setVisible(true);
 				setVisible(false);
 				dispose();

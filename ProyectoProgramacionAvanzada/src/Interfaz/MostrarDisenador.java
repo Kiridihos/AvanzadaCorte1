@@ -96,7 +96,7 @@ public class MostrarDisenador extends javax.swing.JFrame {
 		JButton volverBtn = new JButton("Volver");
 		volverBtn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				JFrame ventanaAgregarDatos= new agregarDatosJF();
+				JFrame ventanaAgregarDatos= new AgregarDatosJF();
 				ventanaAgregarDatos.setVisible(true);
 				setVisible(false);
 				dispose();

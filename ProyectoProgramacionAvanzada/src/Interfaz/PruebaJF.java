@@ -13,7 +13,7 @@ import javax.swing.JScrollPane;
 import javax.swing.SwingConstants;
 import javax.swing.JLabel;
 
-public class pruebaJF extends JFrame {
+public class PruebaJF extends JFrame {
 
 	private JScrollPane scrollPane ;
 	/**
@@ -23,7 +23,7 @@ public class pruebaJF extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					pruebaJF frame = new pruebaJF();
+					PruebaJF frame = new PruebaJF();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -35,7 +35,7 @@ public class pruebaJF extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public pruebaJF() {
+	public PruebaJF() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setUndecorated(true);
 		setExtendedState(JFrame.MAXIMIZED_BOTH); 

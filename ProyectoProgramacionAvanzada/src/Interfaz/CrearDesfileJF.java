@@ -25,7 +25,7 @@ import javax.swing.border.EmptyBorder;
 import com.toedter.calendar.JDateChooser;
 import javax.swing.ScrollPaneConstants;
 
-public class crearDesfileJF extends JFrame {
+public class CrearDesfileJF extends JFrame {
 
 	private JScrollPane scrollPane ;
 	private final ConfirmacionJD ventanaConfirmacion=new ConfirmacionJD(this,true);
@@ -36,7 +36,7 @@ public class crearDesfileJF extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					crearDesfileJF frame = new crearDesfileJF();
+					CrearDesfileJF frame = new CrearDesfileJF();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -48,7 +48,7 @@ public class crearDesfileJF extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public crearDesfileJF() {
+	public CrearDesfileJF() {
 		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setUndecorated(true);
@@ -269,7 +269,7 @@ public class crearDesfileJF extends JFrame {
 		JButton volverBtn = new JButton("Volver");
 		volverBtn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				JFrame ventanaAgregarDatos= new agregarDatosJF();
+				JFrame ventanaAgregarDatos= new AgregarDatosJF();
 				ventanaAgregarDatos.setVisible(true);
 				setVisible(false);
 				dispose();

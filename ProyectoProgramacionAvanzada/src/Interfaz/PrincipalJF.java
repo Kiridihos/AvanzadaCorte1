@@ -13,7 +13,7 @@ import javax.swing.JLabel;
 import javax.swing.SwingConstants;
 import java.awt.Font;
 
-public class principalJF extends JFrame {
+public class PrincipalJF extends JFrame {
 
 	private JPanel contentPane;
 	/**
@@ -23,7 +23,7 @@ public class principalJF extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					principalJF frame = new principalJF();
+					PrincipalJF frame = new PrincipalJF();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -35,7 +35,7 @@ public class principalJF extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public principalJF() {
+	public PrincipalJF() {
 		setTitle("The Star Rover");
 		setUndecorated(true);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -49,7 +49,7 @@ public class principalJF extends JFrame {
 		JButton agregarDatosBtn = new JButton("AGREGAR DATOS");
 		agregarDatosBtn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				JFrame ventanaAgregarDatos = new agregarDatosJF();
+				JFrame ventanaAgregarDatos = new AgregarDatosJF();
 				ventanaAgregarDatos.setVisible(true);
 				setVisible(false);
 				dispose();

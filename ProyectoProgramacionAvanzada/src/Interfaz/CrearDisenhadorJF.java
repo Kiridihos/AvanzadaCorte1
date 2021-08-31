@@ -18,7 +18,7 @@ import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 import javax.swing.border.EmptyBorder;
 
-public class crearDisenhadorJF extends JFrame {
+public class CrearDisenhadorJF extends JFrame {
 
 	private JPanel contentPane;
 	private final ConfirmacionJD ventanaConfirmacion=new ConfirmacionJD(this,true);
@@ -29,7 +29,7 @@ public class crearDisenhadorJF extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					crearDisenhadorJF frame = new crearDisenhadorJF();
+					CrearDisenhadorJF frame = new CrearDisenhadorJF();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -41,7 +41,7 @@ public class crearDisenhadorJF extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public crearDisenhadorJF() {
+	public CrearDisenhadorJF() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setUndecorated(true);
 		setExtendedState(JFrame.MAXIMIZED_BOTH); 
@@ -110,7 +110,7 @@ public class crearDisenhadorJF extends JFrame {
 		JButton volverBtn = new JButton("Volver");
 		volverBtn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				JFrame ventanaAgregarDatos= new agregarDatosJF();
+				JFrame ventanaAgregarDatos= new AgregarDatosJF();
 				ventanaAgregarDatos.setVisible(true);
 				setVisible(false);
 				dispose();

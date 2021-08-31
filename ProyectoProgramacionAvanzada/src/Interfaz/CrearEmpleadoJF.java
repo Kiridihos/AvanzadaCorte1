@@ -21,7 +21,7 @@ import javax.swing.JComboBox;
 import java.awt.event.FocusAdapter;
 import java.awt.event.FocusEvent;
 
-public class crearEmpleadoJF extends JFrame {
+public class CrearEmpleadoJF extends JFrame {
 
 	private JPanel contentPane;
 	private final ConfirmacionJD ventanaConfirmacion=new ConfirmacionJD(this,true);
@@ -33,7 +33,7 @@ public class crearEmpleadoJF extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					crearEmpleadoJF frame = new crearEmpleadoJF();
+					CrearEmpleadoJF frame = new CrearEmpleadoJF();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -45,7 +45,7 @@ public class crearEmpleadoJF extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public crearEmpleadoJF() {
+	public CrearEmpleadoJF() {
 		
 		setUndecorated(true);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -173,7 +173,7 @@ public class crearEmpleadoJF extends JFrame {
 		JButton volverBtn = new JButton("Volver");
 		volverBtn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				JFrame ventanaAgregarDatos= new agregarDatosJF();
+				JFrame ventanaAgregarDatos= new AgregarDatosJF();
 				ventanaAgregarDatos.setVisible(true);
 				setVisible(false);
 				dispose();
