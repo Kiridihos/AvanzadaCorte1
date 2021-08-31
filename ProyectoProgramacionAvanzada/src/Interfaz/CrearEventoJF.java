@@ -27,7 +27,7 @@ import javax.swing.AbstractListModel;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 
-public class crearEventoJF extends javax.swing.JFrame {
+public class CrearEventoJF extends javax.swing.JFrame {
 
 	private JPanel contentPane;
 	private final ConfirmacionJD ventanaConfirmacion=new ConfirmacionJD(this,true);
@@ -38,7 +38,7 @@ public class crearEventoJF extends javax.swing.JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					crearEventoJF frame = new crearEventoJF();
+					CrearEventoJF frame = new CrearEventoJF();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -50,7 +50,7 @@ public class crearEventoJF extends javax.swing.JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public crearEventoJF() {
+	public CrearEventoJF() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setUndecorated(true);
 		setBounds(0,0,1400, 800);
@@ -219,7 +219,7 @@ public class crearEventoJF extends javax.swing.JFrame {
 		JButton volverBtn = new JButton("Volver");
 		volverBtn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				JFrame ventanaAgregarDatos= new agregarDatosJF();
+				JFrame ventanaAgregarDatos= new AgregarDatosJF();
 				ventanaAgregarDatos.setVisible(true);
 				setVisible(false);
 				dispose();

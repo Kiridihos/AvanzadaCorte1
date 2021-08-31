@@ -14,7 +14,7 @@ import javax.swing.JLabel;
 import java.awt.Font;
 import javax.swing.SwingConstants;
 
-public class agregarDatosJF extends JFrame {
+public class AgregarDatosJF extends JFrame {
 
 	private JPanel contentPane;
 	private Dimension dim;
@@ -25,7 +25,7 @@ public class agregarDatosJF extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					agregarDatosJF frame = new agregarDatosJF();
+					AgregarDatosJF frame = new AgregarDatosJF();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -37,7 +37,7 @@ public class agregarDatosJF extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public agregarDatosJF() {
+	public AgregarDatosJF() {
 		setTitle("The Star Rover Agregar Datos");
 		setUndecorated(true);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -56,7 +56,7 @@ public class agregarDatosJF extends JFrame {
 		JButton crearEventoBtn = new JButton("Crear Evento");
 		crearEventoBtn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				JFrame ventanaCrearEvento=new crearEventoJF();
+				JFrame ventanaCrearEvento=new CrearEventoJF();
 				ventanaCrearEvento.setVisible(true);
 				dispose();
 			}
@@ -67,7 +67,7 @@ public class agregarDatosJF extends JFrame {
 		JButton crearEmpleadoBtn = new JButton("Crear Empleado");
 		crearEmpleadoBtn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				JFrame ventanaCrearEvento=new crearEmpleadoJF();
+				JFrame ventanaCrearEvento=new CrearEmpleadoJF();
 				ventanaCrearEvento.setVisible(true);
 				dispose();
 			}
@@ -78,7 +78,7 @@ public class agregarDatosJF extends JFrame {
 		JButton crearDesfileBtn = new JButton("Crear Desfile");
 		crearDesfileBtn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				JFrame ventanaCrearDesfile=new crearDesfileJF();
+				JFrame ventanaCrearDesfile=new CrearDesfileJF();
 				ventanaCrearDesfile.setVisible(true);
 				dispose();
 			}
@@ -89,7 +89,7 @@ public class agregarDatosJF extends JFrame {
 		JButton crearDisenhadorBtn = new JButton("Crear Diseñador");
 		crearDisenhadorBtn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				JFrame ventanaCrearDisenhador=new crearDisenhadorJF();
+				JFrame ventanaCrearDisenhador=new CrearDisenhadorJF();
 				ventanaCrearDisenhador.setVisible(true);
 				dispose();
 			}
@@ -100,7 +100,7 @@ public class agregarDatosJF extends JFrame {
 		JButton crearPabellonBtn = new JButton("Crear Pabellon");
 		crearPabellonBtn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				JFrame ventanaCrearPabellon=new crearPabellonJF();
+				JFrame ventanaCrearPabellon=new CrearPabellonJF();
 				ventanaCrearPabellon.setVisible(true);
 				dispose();
 			}
@@ -111,7 +111,7 @@ public class agregarDatosJF extends JFrame {
 		JButton crearModeloBtn = new JButton("Crear Modelo");
 		crearModeloBtn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				JFrame ventanaAgregarModelo=new crearModeloJF();
+				JFrame ventanaAgregarModelo=new CrearModeloJF();
 				ventanaAgregarModelo.setVisible(true);
 				dispose();
 			}
@@ -122,7 +122,7 @@ public class agregarDatosJF extends JFrame {
 		JButton crearAgenciaBtn = new JButton("Crear Agencia");
 		crearAgenciaBtn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				JFrame ventanaCreaAgencia=new crearAgenciaJF();
+				JFrame ventanaCreaAgencia=new CrearAgenciaJF();
 				ventanaCreaAgencia.setVisible(true);
 				dispose();
 			}
@@ -133,7 +133,7 @@ public class agregarDatosJF extends JFrame {
 		JButton volverBtn = new JButton("Volver");
 		volverBtn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				JFrame ventanaPrincipal= new principalJF();
+				JFrame ventanaPrincipal= new PrincipalJF();
 				ventanaPrincipal.setVisible(true);
 				setVisible(false);
 				dispose();

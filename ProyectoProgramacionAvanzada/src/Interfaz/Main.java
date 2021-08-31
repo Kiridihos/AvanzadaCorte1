@@ -5,9 +5,9 @@ import java.sql.DriverManager;
 
 import javax.swing.JFrame;
 
-public class main {
+public class Main {
 	public static void main(String[] args) {
-		JFrame main=new  principalJF() ;
+		JFrame main=new  PrincipalJF() ;
 		main.setVisible(true);
 		
 		Connection connection=null;

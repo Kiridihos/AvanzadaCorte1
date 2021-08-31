@@ -27,6 +27,7 @@ public class CrearArtistaJF extends JFrame {
 	private JPanel contentPane;
 	private final ConfirmacionJD ventanaConfirmacion=new ConfirmacionJD(this,true);
 	private ButtonGroup tipoArtista=new ButtonGroup();
+	private ButtonGroup tipoArtistaContratoAux=new ButtonGroup();
 	/**
 	 * Launch the application.
 	 */
@@ -64,7 +65,7 @@ public class CrearArtistaJF extends JFrame {
 		JLabel nombreLbl = new JLabel("Nombre Aristico:");
 		nombreLbl.setFont(new Font("Bookman Old Style", Font.BOLD, 20));
 		nombreLbl.setHorizontalAlignment(SwingConstants.LEFT);
-		nombreLbl.setBounds(10, 100, 240, 30);
+		nombreLbl.setBounds(10, 250, 240, 30);
 		contentPane.add(nombreLbl);
 
 		JTextField nombreTxt = new JTextField();
@@ -76,50 +77,87 @@ public class CrearArtistaJF extends JFrame {
 			}
 		});
 		nombreTxt.setFont(new Font("Bookman Old Style", Font.PLAIN, 15));
-		nombreTxt.setBounds(250,100, 400, 30);
+		nombreTxt.setBounds(250,250, 400, 30);
 		nombreTxt.setColumns(10);
 		contentPane.add(nombreTxt);
 		
 		JLabel generoMusicalLbl = new JLabel("Genero Musical");
 		generoMusicalLbl.setFont(new Font("Bookman Old Style", Font.BOLD, 20));
 		generoMusicalLbl.setHorizontalAlignment(SwingConstants.LEFT);
-		generoMusicalLbl.setBounds(10, 150, 240, 30);
+		generoMusicalLbl.setBounds(10, 200, 240, 30);
 		contentPane.add(generoMusicalLbl);
 		
 		JComboBox generoMusicalesDesplegable = new JComboBox();
 		generoMusicalesDesplegable.setModel(new DefaultComboBoxModel(new String[] {"GENERO", "2", "3", "4", "5", "6", "7", "8", "9"}));
 		generoMusicalesDesplegable.setFont(new Font("Bookman Old Style", Font.PLAIN, 20));
-		generoMusicalesDesplegable.setBounds(250,150,240, 30);
+		generoMusicalesDesplegable.setBounds(250,200,240, 30);
 		contentPane.add(generoMusicalesDesplegable);
+		
+		JLabel tipoArtistaContratoAuxLbl = new JLabel("Tipo de artista :");
+		tipoArtistaContratoAuxLbl.setHorizontalAlignment(SwingConstants.LEFT);
+		tipoArtistaContratoAuxLbl.setFont(new Font("Bookman Old Style", Font.BOLD, 20));
+		tipoArtistaContratoAuxLbl.setBounds(10, 100, 240, 30);
+		contentPane.add(tipoArtistaContratoAuxLbl);
+		
+		JRadioButton contratoRbtn= new JRadioButton("Contrato");
+		contratoRbtn.setSelected(true);
+		contratoRbtn.addFocusListener(new FocusAdapter() {
+			@Override
+			public void focusGained(FocusEvent e) {
+				generoMusicalLbl.setVisible(true);
+				generoMusicalesDesplegable.setVisible(true);
+			}
+		});
+		contratoRbtn.setHorizontalAlignment(SwingConstants.LEFT);
+		contratoRbtn.setFont(new Font("Bookman Old Style", Font.PLAIN, 20));
+		contratoRbtn.setBounds(250, 100, 120, 30);
+		contentPane.add(contratoRbtn);
+		
+		JRadioButton auxiliarRbtn = new JRadioButton("Auxiliar");
+		auxiliarRbtn.addFocusListener(new FocusAdapter() {
+			@Override
+			public void focusGained(FocusEvent e) {
+				generoMusicalLbl.setVisible(false);
+				generoMusicalesDesplegable.setVisible(false);
+			}
+		});
+		auxiliarRbtn.setHorizontalAlignment(SwingConstants.LEFT);
+		auxiliarRbtn.setFont(new Font("Bookman Old Style", Font.PLAIN, 20));
+		auxiliarRbtn.setBounds(370, 100, 120, 30);
+		contentPane.add(auxiliarRbtn);
+		
+		tipoArtistaContratoAux.add(contratoRbtn);
+		tipoArtistaContratoAux.add(auxiliarRbtn);
 		
 		JLabel tipoArtistaLbl = new JLabel("Tipo de artista :");
 		tipoArtistaLbl.setHorizontalAlignment(SwingConstants.LEFT);
 		tipoArtistaLbl.setFont(new Font("Bookman Old Style", Font.BOLD, 20));
-		tipoArtistaLbl.setBounds(10, 212, 240, 30);
+		tipoArtistaLbl.setBounds(10, 150, 240, 30);
 		contentPane.add(tipoArtistaLbl);
 		
 		JRadioButton solistaRbtn= new JRadioButton("Solista");
+		solistaRbtn.setSelected(true);
 		solistaRbtn.addFocusListener(new FocusAdapter() {
 			@Override
 			public void focusGained(FocusEvent e) {
-
+				nombreLbl.setLocation(10,250 );
 			}
 		});
 		solistaRbtn.setHorizontalAlignment(SwingConstants.LEFT);
 		solistaRbtn.setFont(new Font("Bookman Old Style", Font.PLAIN, 20));
-		solistaRbtn.setBounds(250, 212, 120, 30);
+		solistaRbtn.setBounds(250, 150, 120, 30);
 		contentPane.add(solistaRbtn);
 		
 		JRadioButton GrupalRbtn = new JRadioButton("Grupal");
 		GrupalRbtn.addFocusListener(new FocusAdapter() {
 			@Override
 			public void focusGained(FocusEvent e) {
-
+				nombreLbl.setLocation(10,300 );
 			}
 		});
 		GrupalRbtn.setHorizontalAlignment(SwingConstants.LEFT);
 		GrupalRbtn.setFont(new Font("Bookman Old Style", Font.PLAIN, 20));
-		GrupalRbtn.setBounds(372, 212, 120, 30);
+		GrupalRbtn.setBounds(370, 150, 120, 30);
 		contentPane.add(GrupalRbtn);
 		tipoArtista.add(GrupalRbtn);
 		tipoArtista.add(solistaRbtn);
@@ -127,7 +165,7 @@ public class CrearArtistaJF extends JFrame {
 		JButton volverBtn = new JButton("Volver");
 		volverBtn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				JFrame ventanaAgregarDatos= new agregarDatosJF();
+				JFrame ventanaAgregarDatos= new AgregarDatosJF();
 				ventanaAgregarDatos.setVisible(true);
 				setVisible(false);
 				dispose();
