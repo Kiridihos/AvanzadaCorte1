@@ -38,7 +38,6 @@ public class principalJF extends JFrame {
 	public principalJF() {
 		setTitle("The Star Rover");
 		setUndecorated(true);
-		setExtendedState(JFrame.MAXIMIZED_BOTH); 
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(0,0,1400, 800);
 		

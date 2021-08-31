@@ -52,7 +52,6 @@ public class crearEventoJF extends javax.swing.JFrame {
 	 */
 	public crearEventoJF() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setExtendedState(JFrame.MAXIMIZED_BOTH);
 		setUndecorated(true);
 		setBounds(0,0,1400, 800);
 		
@@ -226,7 +225,7 @@ public class crearEventoJF extends javax.swing.JFrame {
 				dispose();
 			}
 		});
-		volverBtn.setBounds(1270,700,70,40);
+		volverBtn.setBounds(1270,20,70,40);
 		contentPane.add(volverBtn);
 		
 		JButton guardarBtn = new JButton("Guardar");

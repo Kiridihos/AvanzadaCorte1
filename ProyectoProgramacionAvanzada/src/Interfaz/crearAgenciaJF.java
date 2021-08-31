@@ -142,7 +142,7 @@ public class crearAgenciaJF extends JFrame {
 				dispose();
 			}
 		});
-		volverBtn.setBounds(1270,700,70,40);
+		volverBtn.setBounds(1270,20,70,40);
 		contentPane.add(volverBtn);
 		
 		JButton guardarBtn = new JButton("Guardar");

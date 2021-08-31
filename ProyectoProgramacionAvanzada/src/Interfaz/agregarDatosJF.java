@@ -39,7 +39,6 @@ public class agregarDatosJF extends JFrame {
 	 */
 	public agregarDatosJF() {
 		setTitle("The Star Rover Agregar Datos");
-		setExtendedState(JFrame.MAXIMIZED_BOTH);
 		setUndecorated(true);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(0,0,1400, 800);
@@ -47,18 +46,6 @@ public class agregarDatosJF extends JFrame {
 		contentPane = new JPanel();
 		contentPane.setLayout(null);
 		setContentPane(contentPane);
-		
-		JButton volverBtn = new JButton("Volver");
-		volverBtn.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				JFrame ventanaPrincipal= new principalJF();
-				ventanaPrincipal.setVisible(true);
-				setVisible(false);
-				dispose();
-			}
-		});
-		volverBtn.setBounds(1270,700,70,40);
-		contentPane.add(volverBtn);
 		
 		JLabel tituloLbl = new JLabel("Agregar Datos");
 		tituloLbl.setHorizontalAlignment(SwingConstants.CENTER);
@@ -142,5 +129,17 @@ public class agregarDatosJF extends JFrame {
 		});
 		crearAgenciaBtn.setBounds(20,260, 130, 40);
 		contentPane.add(crearAgenciaBtn);
+		
+		JButton volverBtn = new JButton("Volver");
+		volverBtn.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				JFrame ventanaPrincipal= new principalJF();
+				ventanaPrincipal.setVisible(true);
+				setVisible(false);
+				dispose();
+			}
+		});
+		volverBtn.setBounds(1270,20,70,40);
+		contentPane.add(volverBtn);
 	}
 }

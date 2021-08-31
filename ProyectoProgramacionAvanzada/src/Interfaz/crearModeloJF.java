@@ -44,9 +44,9 @@ public class crearModeloJF extends JFrame {
 	 * Create the frame.
 	 */
 	public crearModeloJF() {
+		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setUndecorated(true);
-		setExtendedState(JFrame.MAXIMIZED_BOTH); 
 		setBounds(0,0,1400, 800);
 		
 		contentPane = new JPanel();
@@ -287,7 +287,7 @@ public class crearModeloJF extends JFrame {
 				dispose();
 			}
 		});
-		volverBtn.setBounds(1270,700,70,40);
+		volverBtn.setBounds(1270,20,70,40);
 		contentPane.add(volverBtn);
 		
 		JButton guardarBtn = new JButton("Guardar");

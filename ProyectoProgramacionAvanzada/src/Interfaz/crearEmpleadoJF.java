@@ -46,7 +46,7 @@ public class crearEmpleadoJF extends JFrame {
 	 * Create the frame.
 	 */
 	public crearEmpleadoJF() {
-		setExtendedState(JFrame.MAXIMIZED_BOTH);
+		
 		setUndecorated(true);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(0,0,1400, 800);
@@ -179,7 +179,7 @@ public class crearEmpleadoJF extends JFrame {
 				dispose();
 			}
 		});
-		volverBtn.setBounds(1270,700,70,40);
+		volverBtn.setBounds(1270,20,70,40);
 		contentPane.add(volverBtn);
 		
 		JButton guardarBtn = new JButton("Guardar");
