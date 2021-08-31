@@ -9,11 +9,14 @@ import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 
 import javax.swing.DefaultComboBoxModel;
+import javax.swing.DefaultListModel;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JList;
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 import javax.swing.border.EmptyBorder;
@@ -277,6 +280,62 @@ public class CrearModeloJF extends JFrame {
 		listaAgenciasDesplegable.setFont(new Font("Bookman Old Style", Font.PLAIN, 20));
 		listaAgenciasDesplegable.setBounds(800,95,240, 40);
 		contentPane.add(listaAgenciasDesplegable);
+		
+		JLabel portafoliolbl = new JLabel("Portafolio :");
+		portafoliolbl.setFont(new Font("Bookman Old Style", Font.BOLD, 20));
+		portafoliolbl.setHorizontalAlignment(SwingConstants.LEFT);
+		portafoliolbl.setBounds(660, 200, 140, 30);
+		contentPane.add(portafoliolbl);
+
+		JComboBox listaPortafolioDesplegable = new JComboBox();
+		listaPortafolioDesplegable.setModel(new DefaultComboBoxModel(new String[] {"PORTAFOLIO", "2", "3", "4", "5", "6", "7", "8", "9"}));
+		listaPortafolioDesplegable.setFont(new Font("Bookman Old Style", Font.PLAIN, 20));
+		listaPortafolioDesplegable.setBounds(800,200,240, 30);
+		contentPane.add(listaPortafolioDesplegable);
+		
+		DefaultListModel cosas= new DefaultListModel();
+		JScrollPane scrollPane = new JScrollPane();
+		scrollPane.setBounds(800, 250, 240, 200);
+		contentPane.add(scrollPane);
+		JList portafoliosLst = new JList();
+		scrollPane.setViewportView(portafoliosLst);
+
+		JButton agregarPortafolioBtn = new JButton("Agregar");
+		agregarPortafolioBtn.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if(cosas.getSize()==0){
+					cosas.addElement(listaPortafolioDesplegable.getSelectedItem());
+					portafoliosLst.setModel(cosas);
+				}else {
+					boolean repetido=false;
+					for(int i=0;i<cosas.getSize();i++) {
+						if(cosas.get(i).toString().equals(listaPortafolioDesplegable.getSelectedItem())) {
+							repetido=true;
+						}else {
+							repetido=false;
+						}
+					}
+					if(repetido==false) {
+						cosas.addElement(listaPortafolioDesplegable.getSelectedItem());
+						portafoliosLst.setModel(cosas);
+					}
+				}	
+			}
+		});
+		agregarPortafolioBtn.setBounds(660, 307, 89, 23);
+		contentPane.add(agregarPortafolioBtn);
+
+		JButton eliminarBtn = new JButton("Eliminar");
+		eliminarBtn.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if(cosas.getSize()>0) {
+				cosas.remove(portafoliosLst.getSelectedIndex());
+				portafoliosLst.setModel(cosas);
+				}
+			}
+		});
+		eliminarBtn.setBounds(660, 350, 89, 23);
+		contentPane.add(eliminarBtn);
 		
 		JButton volverBtn = new JButton("Volver");
 		volverBtn.addActionListener(new ActionListener() {

@@ -63,7 +63,7 @@ public class CrearDesfileJF extends JFrame {
 		setContentPane(scrollPane);
 		
 		JPanel panel = new JPanel();
-		panel.setPreferredSize(new Dimension(1400,800));
+		panel.setPreferredSize(new Dimension(1400,900));
 		scrollPane.setViewportView(panel);
 		panel.setLayout(null);
 		
@@ -266,6 +266,31 @@ public class CrearDesfileJF extends JFrame {
 		eliminarBtn.setBounds(110, 450, 90, 30);
 		panel.add(eliminarBtn);
 		
+		JComboBox listaArtistaDesplegable = new JComboBox();
+		listaArtistaDesplegable.setModel(new DefaultComboBoxModel(new String[] {"Artista", "2", "3", "4", "5", "6", "7", "8", "9"}));
+		listaArtistaDesplegable.setFont(new Font("Bookman Old Style", Font.PLAIN, 20));
+		listaArtistaDesplegable.setBounds(250,660,240, 30);
+		panel.add(listaArtistaDesplegable);
+		
+		JLabel artistaSalariolbl = new JLabel("Salario :");
+		artistaSalariolbl.setFont(new Font("Bookman Old Style", Font.BOLD, 20));
+		artistaSalariolbl.setHorizontalAlignment(SwingConstants.LEFT);
+		artistaSalariolbl.setBounds(10, 700, 90, 30);
+		panel.add(artistaSalariolbl);
+		
+		JTextField salarioArtistaTxt = new JTextField();
+		salarioArtistaTxt.addKeyListener(new KeyAdapter() {
+			@Override
+			public void keyTyped(KeyEvent e) {
+				char c = e.getKeyChar();
+				if((c<'0'|| c>'9')&&c!='.')e.consume(); 
+			}
+		});
+		salarioArtistaTxt.setFont(new Font("Bookman Old Style", Font.PLAIN, 15));
+		salarioArtistaTxt.setBounds(250 ,700, 200, 30);
+		salarioArtistaTxt.setColumns(10);
+		panel.add(salarioArtistaTxt);
+		
 		JButton volverBtn = new JButton("Volver");
 		volverBtn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -287,7 +312,7 @@ public class CrearDesfileJF extends JFrame {
 				}
 			}
 		});
-		guardarBtn.setBounds(700,730,100,40);
+		guardarBtn.setBounds(700,800,100,40);
 		panel.add(guardarBtn);
 		
 		JLabel artistalbl = new JLabel("Artista contratado :");
@@ -296,11 +321,7 @@ public class CrearDesfileJF extends JFrame {
 		artistalbl.setBounds(10, 660, 240, 30);
 		panel.add(artistalbl);
 
-		JComboBox listaArtistaDesplegable = new JComboBox();
-		listaArtistaDesplegable.setModel(new DefaultComboBoxModel(new String[] {"Artista", "2", "3", "4", "5", "6", "7", "8", "9"}));
-		listaArtistaDesplegable.setFont(new Font("Bookman Old Style", Font.PLAIN, 20));
-		listaArtistaDesplegable.setBounds(250,660,240, 30);
-		panel.add(listaArtistaDesplegable);
+
 
 	}
 }
