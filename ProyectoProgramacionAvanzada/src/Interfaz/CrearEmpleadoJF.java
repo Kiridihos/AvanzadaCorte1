@@ -7,6 +7,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.ButtonGroup;
+import javax.swing.DefaultComboBoxModel;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -72,7 +73,7 @@ public class CrearEmpleadoJF extends JFrame {
 			@Override
 			public void keyTyped(KeyEvent e) {
 				char c = e.getKeyChar();
-				if((c<'a'|| c>'z')&& c!=' ')e.consume(); 
+				if((c<'a'|| c>'z')&&(c<'A'|| c>'Z')&& c!=' ')e.consume(); 
 			}
 		});
 		nombreTxt.setFont(new Font("Bookman Old Style", Font.PLAIN, 15));
@@ -113,6 +114,10 @@ public class CrearEmpleadoJF extends JFrame {
 		contentPane.add(ProfesionLbl);
 		
 		JComboBox profesionesDesplegable = new JComboBox();
+		profesionesDesplegable.setEnabled(false);
+		profesionesDesplegable.setEditable(true);
+		profesionesDesplegable.setModel(new DefaultComboBoxModel(new String[] {"VERDADERO","FALSO"}));
+		profesionesDesplegable.setFont(new Font("Bookman Old Style", Font.PLAIN, 20));
 		profesionesDesplegable.setBounds(850, 153, 400, 30);
 		profesionesDesplegable.setVisible(false);
 		contentPane.add(profesionesDesplegable);
@@ -129,7 +134,7 @@ public class CrearEmpleadoJF extends JFrame {
 			@Override
 			public void keyTyped(KeyEvent e) {
 				char c = e.getKeyChar();
-				if((c<'a'|| c>'z')&& c!=' ')e.consume(); 
+				if((c<'a'|| c>'z')&&(c<'A'|| c>'Z')&& c!=' ')e.consume(); 
 			}
 		});
 		universidadTxt.setFont(new Font("Bookman Old Style", Font.PLAIN, 15));
@@ -142,6 +147,7 @@ public class CrearEmpleadoJF extends JFrame {
 		directivoRbtn.addFocusListener(new FocusAdapter() {
 			@Override
 			public void focusGained(FocusEvent e) {
+				
 				ProfesionLbl.setVisible(true);
 				profesionesDesplegable.setVisible(true);
 				UniversidadLbl.setVisible(true);
@@ -166,6 +172,7 @@ public class CrearEmpleadoJF extends JFrame {
 		rasosRbtn.setHorizontalAlignment(SwingConstants.LEFT);
 		rasosRbtn.setFont(new Font("Bookman Old Style", Font.PLAIN, 20));
 		rasosRbtn.setBounds(900, 100, 120, 30);
+		rasosRbtn.setSelected(true);
 		contentPane.add(rasosRbtn);
 		tipoEmpleado.add(rasosRbtn);
 		tipoEmpleado.add(directivoRbtn);
@@ -187,7 +194,23 @@ public class CrearEmpleadoJF extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				ventanaConfirmacion.setVisible(true);
 				if(ventanaConfirmacion.isConfirmacion()) {
-
+					
+					String empleadoCreado="";
+					if(directivoRbtn.isSelected()) {
+						
+						empleadoCreado+="CARNET"+";"+"directivo"
+									  +";"+nombreTxt.getText()
+									  +";"+profesionesDesplegable.getSelectedItem()
+									  +";"+universidadTxt.getText()
+									  +";"+celularTxt.getText();
+					}else if(rasosRbtn.isSelected()) {
+						empleadoCreado+="CARNET"+";"+"raso"
+									  +";"+nombreTxt.getText()
+								      +";"+"FALSO"
+								      +";"//null debido a que no tiene universidad
+								      +";"+celularTxt.getText();
+					}
+					System.out.println(empleadoCreado);
 				}
 			}
 		});
