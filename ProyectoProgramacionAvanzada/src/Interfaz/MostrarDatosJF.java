@@ -67,7 +67,7 @@ public class MostrarDatosJF extends JFrame {
 		JButton crearEmpleadoBtn = new JButton("Mostrar Empleados");
 		crearEmpleadoBtn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				JFrame ventanaCrearEvento=new CrearEmpleadoJF();
+				JFrame ventanaCrearEvento=new MostrarEmpleado();
 				ventanaCrearEvento.setVisible(true);
 				dispose();
 			}
@@ -78,7 +78,7 @@ public class MostrarDatosJF extends JFrame {
 		JButton crearDesfileBtn = new JButton("Mostrar Desfiles");
 		crearDesfileBtn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				JFrame ventanaCrearDesfile=new CrearDesfileJF();
+				JFrame ventanaCrearDesfile=new MostrarDesfile();
 				ventanaCrearDesfile.setVisible(true);
 				dispose();
 			}
@@ -89,7 +89,7 @@ public class MostrarDatosJF extends JFrame {
 		JButton crearDisenhadorBtn = new JButton("Mostrar Diseñadores");
 		crearDisenhadorBtn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				JFrame ventanaCrearDisenhador=new CrearDisenhadorJF();
+				JFrame ventanaCrearDisenhador=new MostrarDisenador();
 				ventanaCrearDisenhador.setVisible(true);
 				dispose();
 			}
@@ -100,7 +100,7 @@ public class MostrarDatosJF extends JFrame {
 		JButton crearPabellonBtn = new JButton("Mostrar Pabellones");
 		crearPabellonBtn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				JFrame ventanaCrearPabellon=new CrearPabellonJF();
+				JFrame ventanaCrearPabellon=new MostrarPabellon();
 				ventanaCrearPabellon.setVisible(true);
 				dispose();
 			}
@@ -111,7 +111,7 @@ public class MostrarDatosJF extends JFrame {
 		JButton crearModeloBtn = new JButton("Mostrar Modelos");
 		crearModeloBtn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				JFrame ventanaAgregarModelo=new CrearModeloJF();
+				JFrame ventanaAgregarModelo=new MostrarModelo();
 				ventanaAgregarModelo.setVisible(true);
 				dispose();
 			}
@@ -122,7 +122,7 @@ public class MostrarDatosJF extends JFrame {
 		JButton crearAgenciaBtn = new JButton("Mostrar Agencias");
 		crearAgenciaBtn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				JFrame ventanaCreaAgencia=new CrearAgenciaJF();
+				JFrame ventanaCreaAgencia=new MostrarAgencia();
 				ventanaCreaAgencia.setVisible(true);
 				dispose();
 			}
