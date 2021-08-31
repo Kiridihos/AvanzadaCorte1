@@ -85,9 +85,9 @@ public class MostrarDatosJF extends JFrame {
 		JButton crearDesfileBtn = new JButton("Mostrar Desfiles");
 		crearDesfileBtn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				JFrame ventanaCrearDesfile=new MostrarDesfile();
-				ventanaCrearDesfile.setVisible(true);
-				dispose();
+				//JFrame ventanaCrearDesfile=new MostrarDesfile();
+				//ventanaCrearDesfile.setVisible(true);
+				//dispose();
 			}
 		});
 		crearDesfileBtn.setBounds(20,140, 130, 40);
