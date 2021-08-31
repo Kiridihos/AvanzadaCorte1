@@ -74,9 +74,9 @@ public class MostrarDatosJF extends JFrame {
 		JButton crearEmpleadoBtn = new JButton("Mostrar Empleados");
 		crearEmpleadoBtn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				JFrame ventanaCrearEvento=new MostrarEmpleado();
-				ventanaCrearEvento.setVisible(true);
-				dispose();
+				//JFrame ventanaCrearEvento=new MosEmpelado();
+				//ventanaCrearEvento.setVisible(true);
+				//dispose();
 			}
 		});
 		crearEmpleadoBtn.setBounds(170,80, 130, 40);
@@ -96,9 +96,9 @@ public class MostrarDatosJF extends JFrame {
 		JButton crearDisenhadorBtn = new JButton("Mostrar Diseñadores");
 		crearDisenhadorBtn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				JFrame ventanaCrearDisenhador=new MostrarDisenador();
-				ventanaCrearDisenhador.setVisible(true);
-				dispose();
+				//JFrame ventanaCrearDisenhador=new MostrarDisenador();
+				//ventanaCrearDisenhador.setVisible(true);
+				//dispose();
 			}
 		});
 		crearDisenhadorBtn.setBounds(170,140, 130, 40);
@@ -107,9 +107,9 @@ public class MostrarDatosJF extends JFrame {
 		JButton crearPabellonBtn = new JButton("Mostrar Pabellones");
 		crearPabellonBtn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				JFrame ventanaCrearPabellon=new MostrarPabellon();
-				ventanaCrearPabellon.setVisible(true);
-				dispose();
+				//JFrame ventanaCrearPabellon=new MostrarPabellon();
+				//ventanaCrearPabellon.setVisible(true);
+				//dispose();
 			}
 		});
 		crearPabellonBtn.setBounds(20,200, 130, 40);
@@ -118,9 +118,9 @@ public class MostrarDatosJF extends JFrame {
 		JButton crearModeloBtn = new JButton("Mostrar Modelos");
 		crearModeloBtn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				JFrame ventanaAgregarModelo=new MostrarModelo();
-				ventanaAgregarModelo.setVisible(true);
-				dispose();
+				//JFrame ventanaAgregarModelo=new MostrarModelo();
+				//ventanaAgregarModelo.setVisible(true);
+				//dispose();
 			}
 		});
 		crearModeloBtn.setBounds(170,200, 130, 40);
@@ -129,9 +129,9 @@ public class MostrarDatosJF extends JFrame {
 		JButton crearAgenciaBtn = new JButton("Mostrar Agencias");
 		crearAgenciaBtn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				JFrame ventanaCreaAgencia=new MostrarAgencia();
-				ventanaCreaAgencia.setVisible(true);
-				dispose();
+				//JFrame ventanaCreaAgencia=new MostrarAgencia();
+				//ventanaCreaAgencia.setVisible(true);
+				//dispose();
 			}
 		});
 		crearAgenciaBtn.setBounds(20,260, 130, 40);
@@ -140,10 +140,10 @@ public class MostrarDatosJF extends JFrame {
 		JButton volverBtn = new JButton("Volver");
 		volverBtn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				JFrame ventanaPrincipal= new PrincipalJF();
-				ventanaPrincipal.setVisible(true);
-				setVisible(false);
-				dispose();
+				//JFrame ventanaPrincipal= new PrincipalJF();
+				//ventanaPrincipal.setVisible(true);
+				//setVisible(false);
+				//dispose();
 			}
 		});
 		volverBtn.setBounds(1270,20,70,40);
