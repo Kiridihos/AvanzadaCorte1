@@ -33,7 +33,8 @@ class panel4 extends JPanel{
 		try {
 			Class.forName("org.postgresql.Driver");
 			Connection connection = DriverManager.getConnection("jdbc:postgresql://localhost:5432/projectC1","postgres","12345");
-			int numero,disenador,modelo,salario_modelo,artista,salario_artista,evento_asignado;
+			long modelo, disenador;
+			int numero,salario_modelo,artista,salario_artista,evento_asignado;
 			String nombre_coleccion,pabellon;
 			Statement st = (Statement) connection.createStatement();
 			ResultSet rs = st.executeQuery("SELECT numero,nombre_coleccion,disenador,pabellon,modelo,salario_modelo,artista,salario_artista,evento_asignado from Desfile");
@@ -44,8 +45,8 @@ class panel4 extends JPanel{
 			tabla.setModel(modelos);
 			while(rs.next()) {
 				numero = rs.getInt("numero");
-				disenador = rs.getInt("disenador");
-				modelo = rs.getInt("modelo");
+				disenador = rs.getLong("disenador");
+				modelo = rs.getLong("modelo");
 				salario_modelo= rs.getInt("salario_modelo");
 				artista = rs.getInt("artista");
 				salario_artista = rs.getInt("salario_artista");
