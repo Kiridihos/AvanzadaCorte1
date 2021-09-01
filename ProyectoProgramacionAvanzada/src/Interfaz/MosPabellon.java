@@ -43,8 +43,8 @@ class panel8 extends JPanel{
 			modelo.setColumnIdentifiers(columnas);
 			tabla.setModel(modelo);
 			while(rs.next()) {
-				empleado_responsable = rs.getInt("codigo");
-				telefono = rs.getInt("ano_creacion");
+				empleado_responsable = rs.getInt("empleado_responsable");
+				telefono = rs.getInt("telefono");
 				
 				nombre = rs.getString("nombre");
 			
