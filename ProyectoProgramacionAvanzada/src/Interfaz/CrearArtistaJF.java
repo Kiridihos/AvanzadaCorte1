@@ -10,6 +10,7 @@ import java.awt.event.FocusAdapter;
 import java.awt.event.FocusEvent;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
+import java.text.SimpleDateFormat;
 
 import javax.swing.ButtonGroup;
 import javax.swing.DefaultComboBoxModel;
@@ -93,7 +94,7 @@ public class CrearArtistaJF extends JFrame {
 			@Override
 			public void keyTyped(KeyEvent e) {
 				char c = e.getKeyChar();
-				if((c<'a'|| c>'z')&& c!=' ')e.consume(); 
+				if((c<'a'|| c>'z')&&(c<'A'|| c>'Z')&& c!=' ')e.consume(); 
 			}
 		});
 		nombreTxt.setFont(new Font("Bookman Old Style", Font.PLAIN, 15));
@@ -114,7 +115,7 @@ public class CrearArtistaJF extends JFrame {
 			@Override
 			public void keyTyped(KeyEvent e) {
 				char c = e.getKeyChar();
-				if((c<'a'|| c>'z')&& c!=' ')e.consume(); 
+				if((c<'a'|| c>'z')&&(c<'A'|| c>'Z')&& c!=' ')e.consume(); 
 			}
 		});
 		nombreBandaTxt.setFont(new Font("Bookman Old Style", Font.PLAIN, 15));
@@ -296,7 +297,46 @@ public class CrearArtistaJF extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				ventanaConfirmacion.setVisible(true);
 				if(ventanaConfirmacion.isConfirmacion()) {
+					if(ventanaConfirmacion.isConfirmacion()) {
+						String artistaCreado="";
+						String bandaCreada="";
+						if(auxiliarRbtn.isSelected()) {
+							artistaCreado+="Codigo"+";"+nombreTxt.getText()
+										 +";"+generoMusicalesDesplegable.getSelectedItem() //Coneguir genero de banda seleccionado
+										 +";"+"grupal"
+										 +";"+"auxiliar"
+										 +";"+"VERDADERO"
+										 +";"+bandasDesplegable1.getSelectedItem();
+						}else if(contratoRbtn.isSelected()){
+							if(solistaRbtn.isSelected()) {
+								artistaCreado+="Codigo"+";"+nombreTxt.getText()
+								 +";"+generoMusicalesDesplegable.getSelectedItem() //Coneguir genero de banda seleccionado
+								 +";"+"solista"
+								 +";"+"contrato"
+								 +";"+"FALSO"
+								 +";";//NULL PORQUE UN SOLISTA NO TIENE BANDA
+							}else if(GrupalRbtn.isSelected()) {
+								artistaCreado+="Codigo"+";"+nombreTxt.getText()
+								 +";"+generoMusicalesDesplegable.getSelectedItem() //Coneguir genero de banda seleccionado
+								 +";"+"grupal"
+								 +";"+"conrtrato"
+								 +";"+"VERDADERO"
+								 +";"+nombreBandaTxt.getText();//conseguir ID nuevo para banda nueva
+								
+								bandaCreada+="ID"+";"+nombreBandaTxt.getText()
+								 +";"+new SimpleDateFormat("dd-MM-YYYY").format(fechaCreacion.getDate())
+								 +";"+nombreTxt.getText();
+							
+							}
+						}
+						System.out.println("Artista");
+						System.out.println(artistaCreado);
+						if(bandaCreada!="") {
+							System.out.println("Banda");
+							System.out.println(bandaCreada);
+						}
 
+					}
 				}
 			}
 		});
@@ -307,8 +347,8 @@ public class CrearArtistaJF extends JFrame {
 		anhadirrBtn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				ventanaConfirmacion.setVisible(true);
-				if(ventanaConfirmacion.isConfirmacion()) {
-
+				if (ventanaConfirmacion.isConfirmacion()) {
+					System.out.println("Agregado a la banda "+bandasDesplegable.getSelectedItem());//Mejorar
 				}
 			}
 		});
