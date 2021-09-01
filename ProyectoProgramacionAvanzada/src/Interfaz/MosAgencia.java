@@ -45,10 +45,9 @@ class panel6 extends JPanel{
 			while(rs.next()) {
 				codigo = rs.getInt("codigo");
 				ano_creacion = rs.getInt("ano_creacion");
-				
 				nombre = rs.getString("nombre");
 				pais = rs.getString("pais");
-				correo_electronico = rs.getString("carreo_electronico");
+				correo_electronico = rs.getString("correo_electronico");
 				
 				modelo.addRow(new Object[]{codigo, nombre, pais,ano_creacion,correo_electronico});
 			}
