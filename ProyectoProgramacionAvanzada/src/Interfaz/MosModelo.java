@@ -17,19 +17,19 @@ public class MosModelo {
 	}
 	
 }
-class frame6 extends JFrame {
-	public frame6() {
+class frame8 extends JFrame {
+	public frame8() {
 		setUndecorated(true);
 		setLayout(new BorderLayout());
 		setBounds(0,0,500,450);
-		panel6 p = new panel6();
+		panel8 p = new panel8();
 		add(p, BorderLayout.CENTER);
 		setLocationRelativeTo(null);
 	}
 }
 
-class panel6 extends JPanel{
-	public panel6() {
+class panel8 extends JPanel{
+	public panel8() {
 		try {
 			Class.forName("org.postgresql.Driver");
 			Connection connection = DriverManager.getConnection("jdbc:postgresql://localhost:5432/projectC1","postgres","12345");
