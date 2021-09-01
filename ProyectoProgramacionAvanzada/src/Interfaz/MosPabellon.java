@@ -45,7 +45,7 @@ class panel10 extends JPanel{
 			tabla.setModel(modelo);
 			while(rs.next()) {
 				pasaporte = rs.getInt("pasaporte");
-				estatura = rs.getInt("estatura");
+				estatura = rs.getInt("estatura"); 
 				cintura = rs.getInt("cintura");
 			    busto = rs.getInt("busto");
 				talla_zapatos = rs.getInt("talla_zapatos");
