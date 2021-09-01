@@ -11,44 +11,56 @@ import javax.swing.table.DefaultTableModel;
 public class MosPabellon {
 
 	public static void main(String[] args) {
-		frame8 f=new frame8();
+		frame10 f=new frame10();
 		f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		f.setVisible(true);
 	}
 	
 }
-class frame8 extends JFrame {
-	public frame8() {
+class frame10 extends JFrame {
+	public frame10() {
 		setUndecorated(true);
 		setLayout(new BorderLayout());
 		setBounds(0,0,500,450);
-		panel8 p = new panel8();
+		panel10 p = new panel10();
 		add(p, BorderLayout.CENTER);
 		setLocationRelativeTo(null);
 	}
 }
 
-class panel8 extends JPanel{
-	public panel8() {
+class panel10 extends JPanel{
+	public panel10() {
 		try {
 			Class.forName("org.postgresql.Driver");
 			Connection connection = DriverManager.getConnection("jdbc:postgresql://localhost:5432/projectC1","postgres","12345");
-			int empleado_responsable,telefono;
-			String nombre;
+			int pasaporte,estatura,cintura,busto,talla_zapatos,peso,agencia,portafolio_de_presentacion;
+			String pais,nombre,color_ojos,color_piel,particularidades;
 			Statement st = (Statement) connection.createStatement();
-			ResultSet rs = st.executeQuery("SELECT nombre,empleado_responsable,telefono from Pabellon");
-			String[] columnas= {"nombre","empleado_responsable","telefono"};
+			ResultSet rs = st.executeQuery("SELECT pasaporte,pais,nombre,color_ojos,color_piel,estatura,cintura,busto,talla_zapatos,peso,particularidades,agencia,portafolio_de_presentacion from Modelos");
+			String[] columnas= {"pasaporte","pais","nombre","color_ojos","color_piel","estatura,cintura",
+					 "busto","talla_zapatos","peso","particularidades","agencia","portafolio_de_presentacion"};
 			JTable tabla = new JTable();
 			DefaultTableModel modelo = new DefaultTableModel();
 			modelo.setColumnIdentifiers(columnas);
 			tabla.setModel(modelo);
 			while(rs.next()) {
-				empleado_responsable = rs.getInt("codigo");
-				telefono = rs.getInt("ano_creacion");
+				pasaporte = rs.getInt("pasaporte");
+				estatura = rs.getInt("estatura");
+				cintura = rs.getInt("cintura");
+			    busto = rs.getInt("busto");
+				talla_zapatos = rs.getInt("talla_zapatos");
+				peso = rs.getInt("peso");
+				agencia = rs.getInt("agencia");
+				portafolio_de_presentacion = rs.getInt("portafolio_de_presentacion");
 				
+				pais = rs.getString("pais");
 				nombre = rs.getString("nombre");
+				color_ojos = rs.getString("color_ojos");
+				color_piel = rs.getString("color_piel");
+				particularidades = rs.getString("particularidades");
 			
-				modelo.addRow(new Object[]{nombre,empleado_responsable,telefono});
+				modelo.addRow(new Object[]{pasaporte,pais,nombre,color_ojos,color_piel,estatura,cintura,
+						busto,talla_zapatos,peso,particularidades,agencia,portafolio_de_presentacion});
 			}
 			JScrollPane scroll = new JScrollPane(tabla);
 			add(scroll);
